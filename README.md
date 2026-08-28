@@ -4,49 +4,74 @@
 [![Verify linked skills](https://github.com/swl126/ai-skills/actions/workflows/verify-linked-skills.yml/badge.svg)](https://github.com/swl126/ai-skills/actions/workflows/verify-linked-skills.yml)
 [![License: GPL-3.0-or-later](https://img.shields.io/badge/License-GPL--3.0--or--later-blue.svg)](LICENSE)
 
-A public catalog and quality framework for reusable AI-agent skills.
+A one-clone collection, catalog, and quality framework for reusable AI-agent skills.
 
-The goal is not to collect prompt snippets. It is to publish skills that an unfamiliar agent can discover, execute, test, and audit. Production skills remain in separate repositories so each one can be installed, versioned, validated, cited, and maintained independently.
+The goal is not to collect prompt snippets. It is to publish operational skills that an unfamiliar AI can discover, ingest, execute, test, and audit. This repository uses a hybrid distribution model: 20 skills are embedded for immediate local ingestion, while independently released skills retain their own versioned repositories and are indexed here.
 
 ## Repository status
 
 | Measure | Current state |
 | --- | ---: |
 | Validated skills | 2 |
-| Approved proposals | 20 |
 | Embedded skills | 20 |
+| Approved proposals | 20 |
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
 | Repository version | 2.0.0 |
 
-## Validated skills
+## Quick start for AI ingestion
+
+Clone once. Every embedded skill is then available locally under `skills/`; no additional repository navigation is required.
+
+```bash
+git clone https://github.com/swl126/ai-skills.git
+cd ai-skills
+
+# Print canonical paths for all embedded skills.
+python3 scripts/list_embedded_skills.py
+
+# Confirm that every package is complete and internally consistent.
+python3 scripts/validate_embedded_skills.py
+```
+
+An agent should read [`embedded-skills.json`](embedded-skills.json), select the relevant entry, and load the referenced `SKILL.md` before acting. It should preserve each skill's required inputs, workflow, output contract, and safety boundaries.
+
+## Independently validated releases
 
 | Skill | Version | Capability | Validation |
 | --- | ---: | --- | --- |
 | [ENDGAME](https://github.com/swl126/endgame) | 1.1.0 | High-rigor orchestration with acceptance gates, selective routing, testing, adversarial review, and proof of completion | [Workflow](https://github.com/swl126/endgame/actions) |
 | [Universal Spreadsheet Engine](https://github.com/swl126/Spreadsheet_runner) | 1.0.0 | Deterministic spreadsheet inspection, transformation, and reusable Python or R recipe generation | [Workflow](https://github.com/swl126/Spreadsheet_runner/actions) |
 
-These are the only repositories currently represented as independently validated releases. The 20 proposed capabilities are also installed locally as embedded version 0.1.0 skills.
+These are the only repositories currently represented as independently validated releases. They are separate from the 20 embedded version `0.1.0` skills below; embedded status means locally ingestible, not independently production-validated.
 
 ## Twenty embedded skills
 
-The [proposal record](PROPOSED_SKILLS.md) defines the design provenance for 20 additional skills across:
+All 20 approved concepts are implemented under [`skills/`](skills/README.md). The [proposal record](PROPOSED_SKILLS.md) remains as design provenance.
 
-- AI assurance and AI security;
-- software, data, platform, and privacy engineering;
-- supply-chain security;
-- reliability, resilience, and release assurance;
-- governance, architecture, and reproducible research.
-
-All 20 are now present under [`skills/`](skills/README.md), so an AI can ingest them from this repository without navigating elsewhere. Machines and agents can discover canonical paths through [`embedded-skills.json`](embedded-skills.json).
-
-```bash
-git clone https://github.com/swl126/ai-skills.git
-cd ai-skills
-python3 scripts/validate_embedded_skills.py
-python3 scripts/list_embedded_skills.py
-```
+| Embedded skill | Primary use |
+| --- | --- |
+| [`model-evaluation-harness`](skills/model-evaluation-harness/SKILL.md) | Repeatable model, prompt, and agent evaluation |
+| [`prompt-injection-tester`](skills/prompt-injection-tester/SKILL.md) | Authorized prompt-injection and indirect-injection testing |
+| [`agent-permission-auditor`](skills/agent-permission-auditor/SKILL.md) | Least-privilege review for agent tools and credentials |
+| [`api-contract-auditor`](skills/api-contract-auditor/SKILL.md) | API implementation and contract consistency |
+| [`row-level-security-auditor`](skills/row-level-security-auditor/SKILL.md) | Tenant-isolation and RLS policy review |
+| [`database-migration-guardian`](skills/database-migration-guardian/SKILL.md) | Safe schema migration planning and verification |
+| [`secrets-hygiene-auditor`](skills/secrets-hygiene-auditor/SKILL.md) | Secret exposure detection and remediation planning |
+| [`dependency-risk-auditor`](skills/dependency-risk-auditor/SKILL.md) | Dependency vulnerability and maintenance risk |
+| [`sbom-builder`](skills/sbom-builder/SKILL.md) | Reproducible software bill of materials generation |
+| [`configuration-drift-detector`](skills/configuration-drift-detector/SKILL.md) | Declared-versus-observed configuration comparison |
+| [`incident-postmortem-builder`](skills/incident-postmortem-builder/SKILL.md) | Evidence-based, blameless incident analysis |
+| [`disaster-recovery-exercise`](skills/disaster-recovery-exercise/SKILL.md) | Recovery drills and restoration evidence |
+| [`observability-designer`](skills/observability-designer/SKILL.md) | Signals, service objectives, dashboards, and alerts |
+| [`release-readiness-gate`](skills/release-readiness-gate/SKILL.md) | Evidence-backed go/no-go release decisions |
+| [`architecture-decision-recorder`](skills/architecture-decision-recorder/SKILL.md) | Durable architecture decision records |
+| [`policy-to-controls-mapper`](skills/policy-to-controls-mapper/SKILL.md) | Policy requirement to technical-control traceability |
+| [`privacy-impact-assessor`](skills/privacy-impact-assessor/SKILL.md) | Personal-data flow and privacy-risk assessment |
+| [`dataset-documenter`](skills/dataset-documenter/SKILL.md) | Dataset provenance, limitations, and intended use |
+| [`synthetic-data-validator`](skills/synthetic-data-validator/SKILL.md) | Utility, fidelity, and disclosure-risk testing |
+| [`reproducible-research-packager`](skills/reproducible-research-packager/SKILL.md) | Reconstructable research artifacts and provenance |
 
 ## Find a skill
 
@@ -83,18 +108,17 @@ python3 -m unittest discover -s tests -v
 
 Installation locations and adapter metadata vary by agent platform. See the [compatibility matrix](COMPATIBILITY.md) before treating platform adaptation as native support.
 
-## Skill lifecycle
+## Maturity and lifecycle
 
 ```mermaid
 flowchart LR
-    P["Proposed"] --> R["Repository created"]
-    R --> C["Candidate"]
-    C --> T["Repaired and tested"]
-    T --> V["Validated"]
+    P["Proposed"] --> E["Embedded v0.1.0"]
+    E --> T["Tested candidate"]
+    T --> V["Independent validation"]
     V --> G["Cataloged release"]
 ```
 
-A concept is not added to the released catalog merely because it sounds useful. It must have a public repository, documented provenance, compatible licensing, operational instructions, deterministic validation, and a passing default-branch workflow.
+Embedding makes a skill portable and usable from one clone. It does not automatically promote that skill into the independently validated release catalog. Promotion requires documented provenance, compatible licensing, operational instructions, deterministic validation, and a passing default-branch workflow.
 
 ## ENDGAME governance
 
@@ -102,7 +126,9 @@ Substantial changes and releases use the canonical [ENDGAME](https://github.com/
 
 ## Quality contract
 
-Every validated skill repository must include:
+Every embedded skill must include valid YAML frontmatter, discriminating trigger guidance, required inputs, an actionable workflow, a defined output contract, and explicit safety and authority boundaries. The manifest, directory set, proposal provenance, names, versions, and distribution metadata must reconcile under automated validation.
+
+In addition, every independently validated skill repository must include:
 
 - a root `SKILL.md` with valid YAML frontmatter;
 - concrete trigger conditions and important exclusions;
@@ -135,17 +161,16 @@ Validation does **not** guarantee that every output an AI produces is correct or
 
 ```mermaid
 flowchart TD
-    H["ai-skills hub"] --> HC["Human catalog"]
-    H --> MC["Machine catalog"]
-    H --> PB["Proposal backlog"]
-    H --> QS["Quality standard"]
-    MC --> D["Discovery CLI"]
-    QS --> CI["Automated validation"]
-    CI --> L["Linked skill repositories"]
-    L --> A["Compatible AI agents"]
+    H["ai-skills repository"] --> E["20 embedded skills"]
+    H --> C["Release catalog"]
+    H --> Q["Quality and governance"]
+    E --> A["One-clone AI ingestion"]
+    C --> L["Linked validated releases"]
+    Q --> CI["Automated validation"]
+    CI --> A
 ```
 
-The hub contains discovery and governance metadata. Executable skill behavior remains in the linked repositories.
+The repository contains executable instructions for the embedded collection as well as discovery and governance metadata for independently released skills.
 
 ## Repository map
 
@@ -156,7 +181,7 @@ The hub contains discovery and governance metadata. Executable skill behavior re
 | [`embedded-skills.json`](embedded-skills.json) | Installed embedded skills and canonical ingestion paths |
 | [`skills/`](skills/README.md) | Twenty locally ingestible skill packages |
 | [SKILLS.md](SKILLS.md) | Human-readable released catalog |
-| [PROPOSED_SKILLS.md](PROPOSED_SKILLS.md) | Prioritized 20-skill development backlog |
+| [PROPOSED_SKILLS.md](PROPOSED_SKILLS.md) | Original prioritized design record for the embedded collection |
 | [STANDARD.md](STANDARD.md) | Normative repository and admission requirements |
 | [TRUST.md](TRUST.md) | Validation scope and maturity model |
 | [COMPATIBILITY.md](COMPATIBILITY.md) | Cross-platform portability boundaries |
@@ -175,4 +200,4 @@ Private repository names, contents, and audit findings are not published through
 
 ## License
 
-This catalog is licensed under [GNU GPL version 3 or any later version](LICENSE). Each linked repository must carry its own compatible license file.
+This repository, including its embedded skills, is licensed under [GNU GPL version 3 or any later version](LICENSE). Each independently linked repository carries its own compatible license file.
