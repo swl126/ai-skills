@@ -13,6 +13,15 @@ This repository is the catalog and quality-control hub. Each production skill li
 
 See [SKILLS.md](SKILLS.md) for capabilities and compatibility. Agents and tooling can consume [catalog.json](catalog.json).
 
+The approved development backlog contains [20 proposed skills](PROPOSED_SKILLS.md). Tooling can consume [proposals.json](proposals.json) without confusing planned work with validated releases.
+
+Search the catalog locally:
+
+```bash
+python3 scripts/skills.py spreadsheet
+python3 scripts/skills.py --status validated --json
+```
+
 ## What makes a repository an AI skill?
 
 Every listed repository must:
@@ -25,6 +34,10 @@ Every listed repository must:
 6. pass its repository checks before it is marked validated.
 
 The full contract is in [STANDARD.md](STANDARD.md).
+
+## Trust model
+
+“Validated” means the repository structure, license, declared tests, documentation, published version, and default-branch automation have passed. It does not mean every future AI-generated result is guaranteed correct. See [TRUST.md](TRUST.md).
 
 ## Installation
 
@@ -54,6 +67,8 @@ flowchart TD
 ## Contributing
 
 Use [CONTRIBUTING.md](CONTRIBUTING.md) to propose a new skill or improve the catalog. Catalog entries are accepted only after validation.
+
+Start with the [quickstart](docs/QUICKSTART.md), review the [roadmap](ROADMAP.md), or inspect the [candidate admission process](CANDIDATES.md).
 
 ## License
 

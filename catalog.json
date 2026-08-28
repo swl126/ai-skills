@@ -10,8 +10,12 @@
       "repository": "https://github.com/swl126/endgame",
       "entrypoint": "SKILL.md",
       "category": "orchestration",
+      "version": "1.1.0",
       "status": "validated",
       "license": "GPL-3.0-or-later",
+      "description": "High-rigor orchestration with acceptance gates, selective routing, testing, adversarial review, and proof of completion.",
+      "tags": ["orchestration", "quality", "verification", "agent-workflow"],
+      "install": "git clone https://github.com/swl126/endgame.git",
       "validation": "python3 scripts/validate_skill.py"
     },
     {
@@ -20,8 +24,12 @@
       "repository": "https://github.com/swl126/Spreadsheet_runner",
       "entrypoint": "SKILL.md",
       "category": "spreadsheets",
+      "version": "1.0.0",
       "status": "validated",
       "license": "GPL-3.0-or-later",
+      "description": "Deterministic spreadsheet inspection, transformation, and reusable Python or R recipe generation.",
+      "tags": ["spreadsheets", "python", "r", "automation", "data-quality"],
+      "install": "git clone https://github.com/swl126/Spreadsheet_runner.git",
       "validation": "python3 -m unittest discover -s tests -v"
     }
   ]

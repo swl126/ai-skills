@@ -1,0 +1,14 @@
+{
+  "id": "replace-with-skill-slug",
+  "name": "Human-readable skill name",
+  "repository": "https://github.com/swl126/replace-with-repository",
+  "entrypoint": "SKILL.md",
+  "category": "replace-with-category",
+  "version": "1.0.0",
+  "status": "candidate",
+  "license": "GPL-3.0-or-later",
+  "description": "Describe the concrete capability in one concise sentence.",
+  "tags": ["replace", "these"],
+  "install": "git clone https://github.com/swl126/replace-with-repository.git",
+  "validation": "replace-with-validation-command"
+}

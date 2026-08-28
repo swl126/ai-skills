@@ -20,11 +20,6 @@
 - Validation: `python3 -m unittest discover -s tests -v`
 - Status: validated
 
-## Admission queue
+## Admission policy
 
-The following repositories are not cataloged as validated until they are public, standardized, licensed, and tested:
-
-- `swl126/paper-to-skill`
-- `swl126/citation-to-formatter`
-
-Their omission is deliberate and is not a judgment about their usefulness.
+Only public repositories that satisfy [STANDARD.md](STANDARD.md) appear in this released-skill catalog. Planned capabilities are tracked separately in [PROPOSED_SKILLS.md](PROPOSED_SKILLS.md).

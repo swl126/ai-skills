@@ -1,0 +1,27 @@
+{
+  "$schema": "./schema/proposals.schema.json",
+  "proposal_version": "1.0.0",
+  "owner": "swl126",
+  "proposals": [
+    {"priority": 1, "id": "model-evaluation-harness", "category": "ai-assurance", "status": "proposed", "description": "Build repeatable AI evaluations with test cases, rubrics, baselines, graders, failure taxonomies, and regression thresholds."},
+    {"priority": 2, "id": "prompt-injection-tester", "category": "ai-security", "status": "proposed", "description": "Test agents and retrieval systems against hostile instructions, data exfiltration, and tool manipulation."},
+    {"priority": 3, "id": "agent-permission-auditor", "category": "ai-security", "status": "proposed", "description": "Evaluate agent tools, credentials, write access, approvals, and least-privilege boundaries."},
+    {"priority": 4, "id": "api-contract-auditor", "category": "software-engineering", "status": "proposed", "description": "Check OpenAPI contracts, implementations, examples, errors, versioning, and backward compatibility."},
+    {"priority": 5, "id": "row-level-security-auditor", "category": "data-security", "status": "proposed", "description": "Inspect row-level security policies for cross-tenant exposure, privilege escalation, missing coverage, and unsafe defaults."},
+    {"priority": 6, "id": "database-migration-guardian", "category": "data-engineering", "status": "proposed", "description": "Plan and validate reversible migrations, backfills, compatibility windows, and rollback procedures."},
+    {"priority": 7, "id": "secrets-hygiene-auditor", "category": "security-engineering", "status": "proposed", "description": "Detect exposed credentials, unsafe examples, excessive scope, and weak rotation practices."},
+    {"priority": 8, "id": "dependency-risk-auditor", "category": "supply-chain-security", "status": "proposed", "description": "Evaluate vulnerabilities, abandonment, licensing conflicts, malicious-package risk, and upgrade exposure."},
+    {"priority": 9, "id": "sbom-builder", "category": "supply-chain-security", "status": "proposed", "description": "Produce and validate software bills of materials with provenance and dependency relationships."},
+    {"priority": 10, "id": "configuration-drift-detector", "category": "platform-engineering", "status": "proposed", "description": "Identify undocumented differences across infrastructure, application, and security configurations."},
+    {"priority": 11, "id": "incident-postmortem-builder", "category": "reliability", "status": "proposed", "description": "Convert evidence and timelines into blameless, actionable incident reports."},
+    {"priority": 12, "id": "disaster-recovery-exercise", "category": "resilience", "status": "proposed", "description": "Design and evaluate exercises for outages, ransomware, dependency failures, and regional disruptions."},
+    {"priority": 13, "id": "observability-designer", "category": "reliability", "status": "proposed", "description": "Define useful logs, metrics, traces, dashboards, service indicators, and alerts."},
+    {"priority": 14, "id": "release-readiness-gate", "category": "delivery-assurance", "status": "proposed", "description": "Evaluate tests, migrations, security, documentation, rollback readiness, and release evidence."},
+    {"priority": 15, "id": "architecture-decision-recorder", "category": "architecture", "status": "proposed", "description": "Record context, alternatives, tradeoffs, consequences, and reversal criteria for technical decisions."},
+    {"priority": 16, "id": "policy-to-controls-mapper", "category": "governance", "status": "proposed", "description": "Convert policy language into controls, owners, evidence, tests, and exception handling."},
+    {"priority": 17, "id": "privacy-impact-assessor", "category": "privacy-engineering", "status": "proposed", "description": "Map personal-data flows, purposes, retention, sharing, user rights, and privacy risks."},
+    {"priority": 18, "id": "dataset-documenter", "category": "data-governance", "status": "proposed", "description": "Generate dataset cards describing provenance, population, collection, limitations, intended use, and bias."},
+    {"priority": 19, "id": "synthetic-data-validator", "category": "data-assurance", "status": "proposed", "description": "Evaluate utility, leakage, duplication, bias, and re-identification risk in synthetic datasets."},
+    {"priority": 20, "id": "reproducible-research-packager", "category": "research-engineering", "status": "proposed", "description": "Package data, code, environments, parameters, provenance, checksums, and reconstruction instructions."}
+  ]
+}
