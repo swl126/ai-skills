@@ -1,0 +1,28 @@
+{
+  "$schema": "./schema/catalog.schema.json",
+  "catalog_version": "1.0.0",
+  "owner": "swl126",
+  "license": "GPL-3.0-or-later",
+  "skills": [
+    {
+      "id": "endgame",
+      "name": "ENDGAME",
+      "repository": "https://github.com/swl126/endgame",
+      "entrypoint": "SKILL.md",
+      "category": "orchestration",
+      "status": "validated",
+      "license": "GPL-3.0-or-later",
+      "validation": "python3 scripts/validate_skill.py"
+    },
+    {
+      "id": "universal-spreadsheet-engine",
+      "name": "Universal Spreadsheet Engine",
+      "repository": "https://github.com/swl126/Spreadsheet_runner",
+      "entrypoint": "SKILL.md",
+      "category": "spreadsheets",
+      "status": "validated",
+      "license": "GPL-3.0-or-later",
+      "validation": "python3 -m unittest discover -s tests -v"
+    }
+  ]
+}

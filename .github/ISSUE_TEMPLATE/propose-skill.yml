@@ -1,0 +1,34 @@
+name: Propose a skill
+description: Propose a repository for catalog admission
+title: "[Skill]: "
+labels: ["skill-candidate"]
+body:
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Purpose and trigger conditions
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation command and evidence
+    validations:
+      required: true
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Admission gates
+      options:
+        - label: The repository contains a root SKILL.md.
+          required: true
+        - label: The repository is licensed GPL-3.0-or-later.
+          required: true
+        - label: The default-branch validation workflow passes.
+          required: true

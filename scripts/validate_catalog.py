@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""Validate catalog invariants without third-party dependencies."""
+
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+CATALOG = ROOT / "catalog.json"
+REQUIRED = {
+    "README.md",
+    "SKILLS.md",
+    "STANDARD.md",
+    "COMPATIBILITY.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "CODE_OF_CONDUCT.md",
+    "LICENSE",
+    "catalog.json",
+    "schema/catalog.schema.json",
+}
+
+
+def fail(message: str) -> None:
+    print(f"ERROR: {message}", file=sys.stderr)
+    raise SystemExit(1)
+
+
+def main() -> None:
+    missing = sorted(path for path in REQUIRED if not (ROOT / path).is_file())
+    if missing:
+        fail(f"missing required files: {', '.join(missing)}")
+
+    data = json.loads(CATALOG.read_text(encoding="utf-8"))
+    if data.get("license") != "GPL-3.0-or-later":
+        fail("catalog license must be GPL-3.0-or-later")
+    if not re.fullmatch(r"\d+\.\d+\.\d+", data.get("catalog_version", "")):
+        fail("catalog_version must use semantic versioning")
+
+    skills = data.get("skills")
+    if not isinstance(skills, list) or not skills:
+        fail("skills must be a non-empty list")
+
+    ids = set()
+    repositories = set()
+    for skill in skills:
+        required = {"id", "name", "repository", "entrypoint", "category", "status", "license", "validation"}
+        absent = sorted(required - set(skill))
+        if absent:
+            fail(f"skill entry missing fields: {', '.join(absent)}")
+        if skill["id"] in ids:
+            fail(f"duplicate skill id: {skill['id']}")
+        if skill["repository"] in repositories:
+            fail(f"duplicate repository: {skill['repository']}")
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", skill["id"]):
+            fail(f"invalid skill id: {skill['id']}")
+        if not skill["repository"].startswith("https://github.com/swl126/"):
+            fail(f"repository is outside swl126: {skill['repository']}")
+        if skill["entrypoint"] != "SKILL.md":
+            fail(f"unsupported entrypoint for {skill['id']}")
+        if skill["license"] != "GPL-3.0-or-later":
+            fail(f"invalid license for {skill['id']}")
+        if skill["status"] not in {"candidate", "validated", "deprecated"}:
+            fail(f"invalid status for {skill['id']}")
+        ids.add(skill["id"])
+        repositories.add(skill["repository"])
+
+    print(f"Catalog valid: {len(skills)} skills")
+
+
+if __name__ == "__main__":
+    main()
