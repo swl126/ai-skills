@@ -1,0 +1,6 @@
+interface:
+  display_name: "Model Evaluation Harness"
+  short_description: "Design repeatable, decision-grade AI evaluations."
+  default_prompt: "Evaluate this AI system with $model-evaluation-harness and produce a versioned test plan, results, and release recommendation."
+policy:
+  allow_implicit_invocation: true

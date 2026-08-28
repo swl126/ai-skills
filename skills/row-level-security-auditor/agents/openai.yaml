@@ -1,0 +1,6 @@
+interface:
+  display_name: "Row-Level Security Auditor"
+  short_description: "Test database tenant-isolation policies."
+  default_prompt: "Use $row-level-security-auditor to assess these policies with positive and negative authorization cases."
+policy:
+  allow_implicit_invocation: true

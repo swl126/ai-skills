@@ -1,0 +1,6 @@
+interface:
+  display_name: "Synthetic Data Validator"
+  short_description: "Test synthetic-data utility and disclosure risk."
+  default_prompt: "Use $synthetic-data-validator to evaluate this synthetic dataset against predeclared utility and privacy thresholds."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Dependency Risk Auditor"
+  short_description: "Prioritize exploitable dependency and license risk."
+  default_prompt: "Use $dependency-risk-auditor to assess these dependencies by reachability, provenance, maintenance, and license risk."
+policy:
+  allow_implicit_invocation: true

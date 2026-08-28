@@ -1,0 +1,6 @@
+interface:
+  display_name: "Secrets Hygiene Auditor"
+  short_description: "Audit credential exposure and handling controls."
+  default_prompt: "Use $secrets-hygiene-auditor to review this authorized scope without reproducing any secret values."
+policy:
+  allow_implicit_invocation: true

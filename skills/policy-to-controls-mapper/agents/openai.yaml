@@ -1,0 +1,6 @@
+interface:
+  display_name: "Policy-to-Controls Mapper"
+  short_description: "Translate policy clauses into testable controls."
+  default_prompt: "Use $policy-to-controls-mapper to create clause-to-control-to-evidence traceability for this policy."
+policy:
+  allow_implicit_invocation: true

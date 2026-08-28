@@ -8,11 +8,12 @@
     "entrypoint": "SKILL.md"
   },
   "repository": "https://github.com/swl126/ai-skills",
-  "repository_version": "2.0.0",
+  "repository_version": "3.0.0",
   "required_gates": [
     "catalog-valid",
     "proposal-backlog-valid",
     "embedded-skills-valid",
+    "embedded-behavioral-tests-pass",
     "unit-tests-pass",
     "local-links-resolve",
     "license-consistent",
@@ -26,6 +27,6 @@
     "validated_skill_count": 2,
     "proposal_count": 20,
     "embedded_skill_count": 20,
-    "test_count": 17
+    "test_count": 22
   }
 }

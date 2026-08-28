@@ -1,0 +1,6 @@
+interface:
+  display_name: "Database Migration Guardian"
+  short_description: "Plan and gate safe database migrations."
+  default_prompt: "Use $database-migration-guardian to create a reversible migration runbook with evidence-based go/no-go gates."
+policy:
+  allow_implicit_invocation: true

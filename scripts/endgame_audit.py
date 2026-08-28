@@ -106,6 +106,8 @@ def main():
         errors.append("embedded skill count differs from ENDGAME audit ledger")
     if [item.get("id") for item in embedded_skills] != [item.get("id") for item in backlog]:
         errors.append("embedded skills differ from approved proposal provenance")
+    if any(item.get("version") != "1.0.0" or item.get("status") != "built" for item in embedded_skills):
+        errors.append("embedded skills are not built version 1.0.0 packages")
     test_source = (ROOT / "tests/test_catalog.py").read_text(encoding="utf-8")
     test_count = len(re.findall(r"^\s+def test_", test_source, flags=re.MULTILINE))
     if test_count != audit.get("test_count"):
@@ -153,6 +155,8 @@ def main():
         errors.append("validation workflow does not run ENDGAME audit")
     if "python3 scripts/validate_embedded_skills.py" not in validate_workflow:
         errors.append("validation workflow does not validate embedded skills")
+    if "python3 scripts/test_embedded_skills.py" not in validate_workflow:
+        errors.append("validation workflow does not run embedded behavioral tests")
 
     if errors:
         fail(errors)

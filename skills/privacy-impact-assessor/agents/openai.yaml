@@ -1,0 +1,6 @@
+interface:
+  display_name: "Privacy Impact Assessor"
+  short_description: "Assess data flows and privacy design risks."
+  default_prompt: "Use $privacy-impact-assessor to map these personal-data flows and identify required design changes and decisions."
+policy:
+  allow_implicit_invocation: true

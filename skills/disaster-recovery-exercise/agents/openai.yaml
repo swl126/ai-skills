@@ -1,0 +1,6 @@
+interface:
+  display_name: "Disaster Recovery Exercise"
+  short_description: "Design and evaluate safe recovery exercises."
+  default_prompt: "Use $disaster-recovery-exercise to design an isolated exercise against these RTO and RPO objectives."
+policy:
+  allow_implicit_invocation: true

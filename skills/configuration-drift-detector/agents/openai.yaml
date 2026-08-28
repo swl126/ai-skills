@@ -1,0 +1,6 @@
+interface:
+  display_name: "Configuration Drift Detector"
+  short_description: "Find and classify environment configuration drift."
+  default_prompt: "Use $configuration-drift-detector to compare these environments and produce a redacted reconciliation plan."
+policy:
+  allow_implicit_invocation: true

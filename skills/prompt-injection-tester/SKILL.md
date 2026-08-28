@@ -2,7 +2,7 @@
 name: prompt-injection-tester
 description: Assess AI agents and retrieval systems for prompt injection, instruction conflicts, data exfiltration, and unsafe tool manipulation. Use for authorized defensive testing of a defined system; do not provide operational abuse against third-party systems.
 metadata:
-  version: "0.1.0"
+  version: "1.0.0"
   distribution: embedded
 ---
 
@@ -20,6 +20,20 @@ Determine whether untrusted content can override authority boundaries or cause u
 
 If a required input is unavailable and materially changes the result, identify the blocker instead of inventing it.
 
+## Operating modes and local resources
+
+- For substantive work, read [the operational playbook](references/playbook.md) before choosing tests, thresholds, or a decision.
+- Use [the report template](assets/report-template.md) when a durable deliverable is requested. Preserve its evidence register and acceptance review even if the presentation format changes.
+- Use [the example request](examples/request.md), [decision excerpt](examples/expected-output.md), and [validated worked report](examples/example-report.md) to calibrate scope and decisiveness, never as evidence for the current task.
+- For a narrow question, apply only the relevant workflow steps and state which completion gates are outside scope.
+
+## Evidence discipline
+
+- Give material evidence stable identifiers and cite those identifiers in findings.
+- Separate observed facts, interpretations, unknowns, and recommendations.
+- Record the target version, environment, collection time, and tool or method when freshness or reproducibility matters.
+- Never upgrade missing evidence into a passing result. Mark it blocked and name what would resolve it.
+
 ## Workflow
 
 1. Map trusted instructions, untrusted content channels, tools, secrets, and approval boundaries.
@@ -28,6 +42,15 @@ If a required input is unavailable and materially changes the result, identify t
 4. Record whether the system follows, refuses, asks approval, leaks canaries, or calls tools.
 5. Trace successful bypasses to the confused authority or missing isolation control.
 6. Recommend layered mitigations and regression cases, then retest within the original authorization.
+
+## Completion gates
+
+- Scope, authority, target identity, and decision owner are explicit.
+- Required inputs are present or their absence is recorded as a blocker.
+- Material findings trace to reviewable evidence and distinguish inference from observation.
+- Every applicable acceptance check in the local playbook has a recorded outcome.
+- Critical failures remain visible in the decision and cannot be averaged away.
+- Follow-up actions have an owner and an observable verification method.
 
 ## Output contract
 
@@ -43,4 +66,3 @@ Separate verified observations, inference, uncertainty, and recommendations. Pre
 - Require explicit authorization and stop at the defined boundary.
 - Use synthetic secrets and non-destructive targets.
 - Do not publish unpatched exploit details or credentials.
-

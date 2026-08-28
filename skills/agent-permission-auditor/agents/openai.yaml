@@ -1,0 +1,6 @@
+interface:
+  display_name: "Agent Permission Auditor"
+  short_description: "Audit agent authority against least privilege."
+  default_prompt: "Use $agent-permission-auditor to map this agent's effective authority and recommend least-privilege controls."
+policy:
+  allow_implicit_invocation: true

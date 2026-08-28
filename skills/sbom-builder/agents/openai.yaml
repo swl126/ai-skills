@@ -1,0 +1,6 @@
+interface:
+  display_name: "SBOM Builder"
+  short_description: "Build and validate SPDX or CycloneDX SBOMs."
+  default_prompt: "Use $sbom-builder to produce and validate an SBOM for this shipped artifact without inventing metadata."
+policy:
+  allow_implicit_invocation: true

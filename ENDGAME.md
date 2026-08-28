@@ -28,6 +28,7 @@ Routine typo corrections may use the normal validation workflow without the full
 ```bash
 python3 scripts/validate_catalog.py
 python3 scripts/validate_embedded_skills.py
+python3 scripts/test_embedded_skills.py
 python3 -m unittest discover -s tests -v
 python3 scripts/endgame_audit.py
 python3 scripts/verify_remote.py
@@ -38,6 +39,6 @@ The remote check requires network access. Local structural and test gates must s
 ## Evidence
 
 - [`ENDGAME.json`](ENDGAME.json) records the canonical source, profile version, gates, and most recent audited state.
-- [`embedded-skills.json`](embedded-skills.json) records every locally ingestible skill and canonical path.
+- [`embedded-skills.json`](embedded-skills.json) records every locally ingestible package, canonical entrypoint, package manifest, version, and build status.
 - [`endgame/TRACEABILITY.md`](endgame/TRACEABILITY.md) connects user intent to implementation and verification.
 - GitHub Actions provides independent default-branch execution evidence.

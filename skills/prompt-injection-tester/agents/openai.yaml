@@ -1,0 +1,6 @@
+interface:
+  display_name: "Prompt Injection Tester"
+  short_description: "Test agent boundaries against prompt injection."
+  default_prompt: "Use $prompt-injection-tester to design an authorized, non-destructive injection assessment and regression plan."
+policy:
+  allow_implicit_invocation: true

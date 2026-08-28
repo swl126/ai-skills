@@ -1,0 +1,14 @@
+# Example decision excerpt
+
+This demonstrates the expected decisiveness and evidence discipline. It is not a reusable answer for different evidence.
+
+## Decision
+
+GAP: certification exists, but prompt removal has no event-driven control or measurable deadline.
+
+## Quality characteristics
+
+- The conclusion is bounded to the stated scenario.
+- The decisive evidence or missing control is named.
+- A critical condition is not averaged away.
+- The next action is independently verifiable.

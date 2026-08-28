@@ -1,0 +1,6 @@
+interface:
+  display_name: "Incident Postmortem Builder"
+  short_description: "Create evidence-grounded, blameless postmortems."
+  default_prompt: "Use $incident-postmortem-builder to reconstruct this incident and produce corrective actions tied to failure mechanisms."
+policy:
+  allow_implicit_invocation: true

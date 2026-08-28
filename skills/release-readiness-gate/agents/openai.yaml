@@ -1,0 +1,6 @@
+interface:
+  display_name: "Release Readiness Gate"
+  short_description: "Issue evidence-backed software release decisions."
+  default_prompt: "Use $release-readiness-gate to evaluate this change and issue a ship, conditional-ship, or block decision."
+policy:
+  allow_implicit_invocation: true

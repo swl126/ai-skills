@@ -16,13 +16,14 @@
 - candidate admission audits;
 - reusable repository scaffold;
 - documented maturity model.
+- twenty self-contained embedded v1.0.0 packages with behavioral validation.
 
 ## Phase 3 — Catalog growth
 
 - promote qualified public candidates through the documented admission process;
 - add citation-validation, document-quality, research, and security-analysis skills as separate repositories;
 - publish versioned catalog releases.
-- mature the 20 embedded skills through usage testing, targeted references or scripts where justified, and independent release admission when appropriate.
+- forward-test the 20 built embedded skills on additional real-world fixtures and admit qualified packages as independent releases.
 
 ## Phase 4 — Ecosystem
 

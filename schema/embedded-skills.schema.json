@@ -15,12 +15,13 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "version", "path", "status"],
+        "required": ["id", "version", "path", "package_path", "status"],
         "properties": {
           "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
           "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
           "path": {"type": "string", "pattern": "^skills/[a-z0-9-]+/SKILL\\.md$"},
-          "status": {"const": "embedded"}
+          "package_path": {"type": "string", "pattern": "^skills/[a-z0-9-]+/skill-package\\.json$"},
+          "status": {"const": "built"}
         }
       }
     }

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/swl126/ai-skills/blob/main/schema/skill-package.schema.json",
+  "title": "Embedded Skill Package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "distribution", "license", "entrypoint", "resources", "validation"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "distribution": {"const": "embedded"},
+    "license": {"const": "GPL-3.0-or-later"},
+    "entrypoint": {"const": "SKILL.md"},
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["playbook", "report_template", "example_request", "example_output", "example_report", "agent_metadata"],
+      "properties": {
+        "playbook": {"const": "references/playbook.md"},
+        "report_template": {"const": "assets/report-template.md"},
+        "example_request": {"const": "examples/request.md"},
+        "example_output": {"const": "examples/expected-output.md"},
+        "example_report": {"const": "examples/example-report.md"},
+        "agent_metadata": {"const": "agents/openai.yaml"}
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "test_command"],
+      "properties": {
+        "command": {"const": "python3 scripts/validate_report.py REPORT.md"},
+        "test_command": {"const": "python3 tests/test_validate_report.py"}
+      }
+    }
+  }
+}

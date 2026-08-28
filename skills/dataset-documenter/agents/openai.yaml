@@ -1,0 +1,6 @@
+interface:
+  display_name: "Dataset Documenter"
+  short_description: "Create evidence-based dataset cards."
+  default_prompt: "Use $dataset-documenter to document this dataset's provenance, transformations, limitations, and intended uses."
+policy:
+  allow_implicit_invocation: true

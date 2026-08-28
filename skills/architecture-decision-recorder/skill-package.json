@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schema/skill-package.schema.json",
+  "id": "architecture-decision-recorder",
+  "version": "1.0.0",
+  "distribution": "embedded",
+  "license": "GPL-3.0-or-later",
+  "entrypoint": "SKILL.md",
+  "resources": {
+    "playbook": "references/playbook.md",
+    "report_template": "assets/report-template.md",
+    "example_request": "examples/request.md",
+    "example_output": "examples/expected-output.md",
+    "example_report": "examples/example-report.md",
+    "agent_metadata": "agents/openai.yaml"
+  },
+  "validation": {
+    "command": "python3 scripts/validate_report.py REPORT.md",
+    "test_command": "python3 tests/test_validate_report.py"
+  }
+}

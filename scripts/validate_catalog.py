@@ -31,7 +31,9 @@ REQUIRED = {
     "scripts/endgame_audit.py",
     "embedded-skills.json",
     "schema/embedded-skills.schema.json",
+    "schema/skill-package.schema.json",
     "scripts/validate_embedded_skills.py",
+    "scripts/test_embedded_skills.py",
     "scripts/list_embedded_skills.py",
     "skills/README.md",
 }

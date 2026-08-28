@@ -1,0 +1,6 @@
+interface:
+  display_name: "Architecture Decision Recorder"
+  short_description: "Create durable, falsifiable architecture records."
+  default_prompt: "Use $architecture-decision-recorder to compare the viable options and record this decision with reversal criteria."
+policy:
+  allow_implicit_invocation: true

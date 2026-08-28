@@ -91,6 +91,37 @@ class CatalogTests(unittest.TestCase):
             text = (ROOT / item["path"]).read_text(encoding="utf-8")
             self.assertIn(f"name: {item['id']}\n", text)
 
+    def test_embedded_skills_are_built_version_one_packages(self):
+        for item in self.embedded["skills"]:
+            self.assertEqual(item["status"], "built")
+            self.assertEqual(item["version"], "1.0.0")
+
+    def test_embedded_package_manifests_match_index(self):
+        for item in self.embedded["skills"]:
+            package = json.loads((ROOT / item["package_path"]).read_text(encoding="utf-8"))
+            self.assertEqual(package["id"], item["id"])
+            self.assertEqual(package["version"], item["version"])
+            self.assertEqual(package["license"], "GPL-3.0-or-later")
+
+    def test_embedded_package_resources_resolve(self):
+        for item in self.embedded["skills"]:
+            package_path = ROOT / item["package_path"]
+            package = json.loads(package_path.read_text(encoding="utf-8"))
+            for relative in package["resources"].values():
+                self.assertTrue((package_path.parent / relative).is_file(), f"{item['id']}: {relative}")
+
+    def test_embedded_agent_prompts_invoke_their_skill(self):
+        for item in self.embedded["skills"]:
+            skill_root = (ROOT / item["path"]).parent
+            metadata = (skill_root / "agents/openai.yaml").read_text(encoding="utf-8")
+            self.assertIn(f"${item['id']}", metadata)
+
+    def test_embedded_entrypoints_route_to_local_resources(self):
+        for item in self.embedded["skills"]:
+            text = (ROOT / item["path"]).read_text(encoding="utf-8")
+            self.assertIn("references/playbook.md", text)
+            self.assertIn("assets/report-template.md", text)
+
 
 if __name__ == "__main__":
     unittest.main()

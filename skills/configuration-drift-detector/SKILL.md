@@ -2,7 +2,7 @@
 name: configuration-drift-detector
 description: Compare infrastructure, application, and security configurations across environments to identify undocumented or risky drift. Use for authorized environment reconciliation; do not overwrite differences until intent and ownership are resolved.
 metadata:
-  version: "0.1.0"
+  version: "1.0.0"
   distribution: embedded
 ---
 
@@ -20,6 +20,20 @@ Distinguish legitimate environment variance from accidental or unsafe divergence
 
 If a required input is unavailable and materially changes the result, identify the blocker instead of inventing it.
 
+## Operating modes and local resources
+
+- For substantive work, read [the operational playbook](references/playbook.md) before choosing tests, thresholds, or a decision.
+- Use [the report template](assets/report-template.md) when a durable deliverable is requested. Preserve its evidence register and acceptance review even if the presentation format changes.
+- Use [the example request](examples/request.md), [decision excerpt](examples/expected-output.md), and [validated worked report](examples/example-report.md) to calibrate scope and decisiveness, never as evidence for the current task.
+- For a narrow question, apply only the relevant workflow steps and state which completion gates are outside scope.
+
+## Evidence discipline
+
+- Give material evidence stable identifiers and cite those identifiers in findings.
+- Separate observed facts, interpretations, unknowns, and recommendations.
+- Record the target version, environment, collection time, and tool or method when freshness or reproducibility matters.
+- Never upgrade missing evidence into a passing result. Mark it blocked and name what would resolve it.
+
 ## Workflow
 
 1. Normalize representations while preserving semantically meaningful types and defaults.
@@ -28,6 +42,15 @@ If a required input is unavailable and materially changes the result, identify t
 4. Trace drift to change history, ownership, and downstream behavioral impact.
 5. Recommend reconciliation direction based on the declared baseline rather than majority state.
 6. Produce repeatable comparison rules and exception expiry dates.
+
+## Completion gates
+
+- Scope, authority, target identity, and decision owner are explicit.
+- Required inputs are present or their absence is recorded as a blocker.
+- Material findings trace to reviewable evidence and distinguish inference from observation.
+- Every applicable acceptance check in the local playbook has a recorded outcome.
+- Critical failures remain visible in the decision and cannot be averaged away.
+- Follow-up actions have an owner and an observable verification method.
 
 ## Output contract
 
@@ -43,4 +66,3 @@ Separate verified observations, inference, uncertainty, and recommendations. Pre
 - Do not expose secrets in diffs.
 - Do not apply production changes without explicit authorization.
 - Account for intentional environment-specific values before labeling drift.
-

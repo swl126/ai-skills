@@ -1,0 +1,6 @@
+interface:
+  display_name: "API Contract Auditor"
+  short_description: "Audit API contracts and implementation behavior."
+  default_prompt: "Use $api-contract-auditor to compare this API contract with observed behavior and identify breaking risks."
+policy:
+  allow_implicit_invocation: true

@@ -2,6 +2,15 @@
 
 All notable catalog-hub changes are documented here.
 
+## 3.0.0 — 2026-08-28
+
+- promoted all twenty embedded skills from instruction shells to self-contained version 1.0.0 packages;
+- added domain-specific operational playbooks, evidence rules, failure modes, and acceptance checks;
+- added reusable report templates, realistic request fixtures, and calibrated decision examples;
+- added agent discovery metadata and machine-readable package manifests;
+- added a deterministic report validator, four behavioral regression tests, and one validator-clean worked report to every skill;
+- expanded repository validation, ENDGAME gates, documentation, and CI to execute all 100 package checks.
+
 ## 2.0.0 — 2026-08-28
 
 - installed all twenty approved proposals as self-contained embedded skills under `skills/`;

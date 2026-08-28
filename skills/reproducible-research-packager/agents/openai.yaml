@@ -1,0 +1,6 @@
+interface:
+  display_name: "Reproducible Research Packager"
+  short_description: "Package research for independent reconstruction."
+  default_prompt: "Use $reproducible-research-packager to assemble and verify a lawful, checksummed reconstruction package."
+policy:
+  allow_implicit_invocation: true

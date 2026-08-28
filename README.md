@@ -18,7 +18,7 @@ The goal is not to collect prompt snippets. It is to publish operational skills 
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
-| Repository version | 2.0.0 |
+| Repository version | 3.0.0 |
 
 ## Quick start for AI ingestion
 
@@ -44,11 +44,11 @@ An agent should read [`embedded-skills.json`](embedded-skills.json), select the 
 | [ENDGAME](https://github.com/swl126/endgame) | 1.1.0 | High-rigor orchestration with acceptance gates, selective routing, testing, adversarial review, and proof of completion | [Workflow](https://github.com/swl126/endgame/actions) |
 | [Universal Spreadsheet Engine](https://github.com/swl126/Spreadsheet_runner) | 1.0.0 | Deterministic spreadsheet inspection, transformation, and reusable Python or R recipe generation | [Workflow](https://github.com/swl126/Spreadsheet_runner/actions) |
 
-These are the only repositories currently represented as independently validated releases. They are separate from the 20 embedded version `0.1.0` skills below; embedded status means locally ingestible, not independently production-validated.
+These are the only repositories currently represented as independently validated releases. They are separate from the 20 fully built embedded version `1.0.0` skills below; embedded status means locally ingestible and repository-tested, not independently production-validated.
 
 ## Twenty embedded skills
 
-All 20 approved concepts are implemented under [`skills/`](skills/README.md). The [proposal record](PROPOSED_SKILLS.md) remains as design provenance.
+All 20 approved concepts are implemented as self-contained packages under [`skills/`](skills/README.md). Each package includes an entrypoint, operational playbook, report template, realistic fixture, UI discovery metadata, deterministic report validator, behavioral tests, and a machine-readable package manifest. The [proposal record](PROPOSED_SKILLS.md) remains as design provenance.
 
 | Embedded skill | Primary use |
 | --- | --- |
@@ -112,7 +112,7 @@ Installation locations and adapter metadata vary by agent platform. See the [com
 
 ```mermaid
 flowchart LR
-    P["Proposed"] --> E["Embedded v0.1.0"]
+    P["Proposed"] --> E["Built embedded v1.0.0"]
     E --> T["Tested candidate"]
     T --> V["Independent validation"]
     V --> G["Cataloged release"]
@@ -148,6 +148,7 @@ Run the complete catalog checks locally:
 ```bash
 python3 scripts/validate_catalog.py
 python3 scripts/validate_embedded_skills.py
+python3 scripts/test_embedded_skills.py
 python3 -m unittest discover -s tests -v
 python3 scripts/endgame_audit.py
 python3 scripts/verify_remote.py
