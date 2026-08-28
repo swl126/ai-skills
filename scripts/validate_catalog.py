@@ -29,6 +29,11 @@ REQUIRED = {
     "CHANGELOG.md",
     "schema/endgame.schema.json",
     "scripts/endgame_audit.py",
+    "embedded-skills.json",
+    "schema/embedded-skills.schema.json",
+    "scripts/validate_embedded_skills.py",
+    "scripts/list_embedded_skills.py",
+    "skills/README.md",
 }
 
 

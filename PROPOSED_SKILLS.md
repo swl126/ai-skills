@@ -1,8 +1,8 @@
-# Proposed Skill Backlog
+# Proposed Skill Record
 
-These are approved concepts for future standalone repositories. They are not represented as implemented or validated until their repositories exist and pass the catalog admission standard.
+These 20 concepts were approved as the development backlog and are now implemented as embedded version 0.1.0 skills under [skills/](skills/README.md). This document preserves their original priority and intended capability. Embedded installation does not imply independent release validation.
 
-| Priority | Proposed repository | Category | Intended capability | Status |
+| Priority | Skill identifier | Category | Intended capability | Original status |
 | ---: | --- | --- | --- | --- |
 | 1 | `model-evaluation-harness` | AI assurance | Build repeatable evaluations with test cases, rubrics, baselines, graders, failure taxonomies, and regression thresholds. | Proposed |
 | 2 | `prompt-injection-tester` | AI security | Test agents and retrieval systems against hostile instructions, data exfiltration, and tool manipulation. | Proposed |

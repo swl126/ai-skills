@@ -1,0 +1,128 @@
+{
+  "$schema": "./schema/embedded-skills.schema.json",
+  "manifest_version": "1.0.0",
+  "distribution": "embedded",
+  "skills": [
+    {
+      "id": "model-evaluation-harness",
+      "version": "0.1.0",
+      "path": "skills/model-evaluation-harness/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "prompt-injection-tester",
+      "version": "0.1.0",
+      "path": "skills/prompt-injection-tester/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "agent-permission-auditor",
+      "version": "0.1.0",
+      "path": "skills/agent-permission-auditor/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "api-contract-auditor",
+      "version": "0.1.0",
+      "path": "skills/api-contract-auditor/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "row-level-security-auditor",
+      "version": "0.1.0",
+      "path": "skills/row-level-security-auditor/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "database-migration-guardian",
+      "version": "0.1.0",
+      "path": "skills/database-migration-guardian/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "secrets-hygiene-auditor",
+      "version": "0.1.0",
+      "path": "skills/secrets-hygiene-auditor/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "dependency-risk-auditor",
+      "version": "0.1.0",
+      "path": "skills/dependency-risk-auditor/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "sbom-builder",
+      "version": "0.1.0",
+      "path": "skills/sbom-builder/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "configuration-drift-detector",
+      "version": "0.1.0",
+      "path": "skills/configuration-drift-detector/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "incident-postmortem-builder",
+      "version": "0.1.0",
+      "path": "skills/incident-postmortem-builder/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "disaster-recovery-exercise",
+      "version": "0.1.0",
+      "path": "skills/disaster-recovery-exercise/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "observability-designer",
+      "version": "0.1.0",
+      "path": "skills/observability-designer/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "release-readiness-gate",
+      "version": "0.1.0",
+      "path": "skills/release-readiness-gate/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "architecture-decision-recorder",
+      "version": "0.1.0",
+      "path": "skills/architecture-decision-recorder/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "policy-to-controls-mapper",
+      "version": "0.1.0",
+      "path": "skills/policy-to-controls-mapper/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "privacy-impact-assessor",
+      "version": "0.1.0",
+      "path": "skills/privacy-impact-assessor/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "dataset-documenter",
+      "version": "0.1.0",
+      "path": "skills/dataset-documenter/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "synthetic-data-validator",
+      "version": "0.1.0",
+      "path": "skills/synthetic-data-validator/SKILL.md",
+      "status": "embedded"
+    },
+    {
+      "id": "reproducible-research-packager",
+      "version": "0.1.0",
+      "path": "skills/reproducible-research-packager/SKILL.md",
+      "status": "embedded"
+    }
+  ]
+}
+

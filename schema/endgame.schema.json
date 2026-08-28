@@ -25,12 +25,13 @@
     "latest_audit": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["date", "result", "validated_skill_count", "proposal_count", "test_count"],
+      "required": ["date", "result", "validated_skill_count", "proposal_count", "embedded_skill_count", "test_count"],
       "properties": {
         "date": {"type": "string", "format": "date"},
         "result": {"enum": ["pass", "blocked", "fail"]},
         "validated_skill_count": {"type": "integer", "minimum": 0},
         "proposal_count": {"type": "integer", "minimum": 0},
+        "embedded_skill_count": {"type": "integer", "minimum": 0},
         "test_count": {"type": "integer", "minimum": 0}
       }
     }

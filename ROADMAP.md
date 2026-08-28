@@ -22,7 +22,7 @@
 - promote qualified public candidates through the documented admission process;
 - add citation-validation, document-quality, research, and security-analysis skills as separate repositories;
 - publish versioned catalog releases.
-- advance the 20 approved concepts in [PROPOSED_SKILLS.md](PROPOSED_SKILLS.md) through repository creation, implementation, testing, and admission.
+- mature the 20 embedded skills through usage testing, targeted references or scripts where justified, and independent release admission when appropriate.
 
 ## Phase 4 — Ecosystem
 

@@ -15,6 +15,7 @@ class CatalogTests(unittest.TestCase):
         cls.catalog = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
         cls.proposals = json.loads((ROOT / "proposals.json").read_text(encoding="utf-8"))
         cls.endgame = json.loads((ROOT / "ENDGAME.json").read_text(encoding="utf-8"))
+        cls.embedded = json.loads((ROOT / "embedded-skills.json").read_text(encoding="utf-8"))
 
     def test_ids_are_unique(self):
         ids = [skill["id"] for skill in self.catalog["skills"]]
@@ -72,6 +73,23 @@ class CatalogTests(unittest.TestCase):
         source = (ROOT / "tests/test_catalog.py").read_text(encoding="utf-8")
         count = len(__import__("re").findall(r"^\s+def test_", source, flags=__import__("re").MULTILINE))
         self.assertEqual(count, self.endgame["latest_audit"]["test_count"])
+
+    def test_twenty_embedded_skills_are_installed(self):
+        self.assertEqual(len(self.embedded["skills"]), 20)
+
+    def test_embedded_ids_match_proposals(self):
+        embedded_ids = [item["id"] for item in self.embedded["skills"]]
+        proposal_ids = [item["id"] for item in self.proposals["proposals"]]
+        self.assertEqual(embedded_ids, proposal_ids)
+
+    def test_embedded_paths_exist(self):
+        for item in self.embedded["skills"]:
+            self.assertTrue((ROOT / item["path"]).is_file(), item["path"])
+
+    def test_embedded_frontmatter_names_match(self):
+        for item in self.embedded["skills"]:
+            text = (ROOT / item["path"]).read_text(encoding="utf-8")
+            self.assertIn(f"name: {item['id']}\n", text)
 
 
 if __name__ == "__main__":

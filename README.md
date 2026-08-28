@@ -14,10 +14,11 @@ The goal is not to collect prompt snippets. It is to publish skills that an unfa
 | --- | ---: |
 | Validated skills | 2 |
 | Approved proposals | 20 |
+| Embedded skills | 20 |
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
-| Repository version | 1.1.0 |
+| Repository version | 2.0.0 |
 
 ## Validated skills
 
@@ -26,11 +27,11 @@ The goal is not to collect prompt snippets. It is to publish skills that an unfa
 | [ENDGAME](https://github.com/swl126/endgame) | 1.1.0 | High-rigor orchestration with acceptance gates, selective routing, testing, adversarial review, and proof of completion | [Workflow](https://github.com/swl126/endgame/actions) |
 | [Universal Spreadsheet Engine](https://github.com/swl126/Spreadsheet_runner) | 1.0.0 | Deterministic spreadsheet inspection, transformation, and reusable Python or R recipe generation | [Workflow](https://github.com/swl126/Spreadsheet_runner/actions) |
 
-These are the only repositories currently represented as validated. Planned work is tracked separately so proposals cannot be mistaken for released capabilities.
+These are the only repositories currently represented as independently validated releases. The 20 proposed capabilities are also installed locally as embedded version 0.1.0 skills.
 
-## Twenty-skill expansion
+## Twenty embedded skills
 
-The [proposed-skill backlog](PROPOSED_SKILLS.md) defines 20 additional standalone skills across:
+The [proposal record](PROPOSED_SKILLS.md) defines the design provenance for 20 additional skills across:
 
 - AI assurance and AI security;
 - software, data, platform, and privacy engineering;
@@ -38,7 +39,14 @@ The [proposed-skill backlog](PROPOSED_SKILLS.md) defines 20 additional standalon
 - reliability, resilience, and release assurance;
 - governance, architecture, and reproducible research.
 
-Machines and agents can consume the same backlog from [`proposals.json`](proposals.json) and validate it against [`schema/proposals.schema.json`](schema/proposals.schema.json).
+All 20 are now present under [`skills/`](skills/README.md), so an AI can ingest them from this repository without navigating elsewhere. Machines and agents can discover canonical paths through [`embedded-skills.json`](embedded-skills.json).
+
+```bash
+git clone https://github.com/swl126/ai-skills.git
+cd ai-skills
+python3 scripts/validate_embedded_skills.py
+python3 scripts/list_embedded_skills.py
+```
 
 ## Find a skill
 
@@ -113,6 +121,7 @@ Run the complete catalog checks locally:
 
 ```bash
 python3 scripts/validate_catalog.py
+python3 scripts/validate_embedded_skills.py
 python3 -m unittest discover -s tests -v
 python3 scripts/endgame_audit.py
 python3 scripts/verify_remote.py
@@ -143,7 +152,9 @@ The hub contains discovery and governance metadata. Executable skill behavior re
 | Resource | Purpose |
 | --- | --- |
 | [`catalog.json`](catalog.json) | Released, validated skill records |
-| [`proposals.json`](proposals.json) | Approved but unimplemented skill concepts |
+| [`proposals.json`](proposals.json) | Original approved design provenance for the embedded skills |
+| [`embedded-skills.json`](embedded-skills.json) | Installed embedded skills and canonical ingestion paths |
+| [`skills/`](skills/README.md) | Twenty locally ingestible skill packages |
 | [SKILLS.md](SKILLS.md) | Human-readable released catalog |
 | [PROPOSED_SKILLS.md](PROPOSED_SKILLS.md) | Prioritized 20-skill development backlog |
 | [STANDARD.md](STANDARD.md) | Normative repository and admission requirements |
