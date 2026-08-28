@@ -23,6 +23,12 @@ REQUIRED = {
     "PROPOSED_SKILLS.md",
     "proposals.json",
     "schema/proposals.schema.json",
+    "ENDGAME.md",
+    "ENDGAME.json",
+    "VERSION",
+    "CHANGELOG.md",
+    "schema/endgame.schema.json",
+    "scripts/endgame_audit.py",
 }
 
 

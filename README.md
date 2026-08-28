@@ -17,6 +17,7 @@ The goal is not to collect prompt snippets. It is to publish skills that an unfa
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
+| Repository version | 1.1.0 |
 
 ## Validated skills
 
@@ -87,6 +88,10 @@ flowchart LR
 
 A concept is not added to the released catalog merely because it sounds useful. It must have a public repository, documented provenance, compatible licensing, operational instructions, deterministic validation, and a passing default-branch workflow.
 
+## ENDGAME governance
+
+Substantial changes and releases use the canonical [ENDGAME](https://github.com/swl126/endgame) discipline. The hub pins the governing version and source commit rather than duplicating the skill. See [ENDGAME.md](ENDGAME.md), the machine-readable [ENDGAME.json](ENDGAME.json) evidence ledger, and the [acceptance gates](endgame/ACCEPTANCE_GATES.md).
+
 ## Quality contract
 
 Every validated skill repository must include:
@@ -109,6 +114,7 @@ Run the complete catalog checks locally:
 ```bash
 python3 scripts/validate_catalog.py
 python3 -m unittest discover -s tests -v
+python3 scripts/endgame_audit.py
 python3 scripts/verify_remote.py
 ```
 
@@ -146,6 +152,9 @@ The hub contains discovery and governance metadata. Executable skill behavior re
 | [ROADMAP.md](ROADMAP.md) | Ecosystem development phases |
 | [CANDIDATES.md](CANDIDATES.md) | Privacy-conscious candidate admission process |
 | [docs/QUICKSTART.md](docs/QUICKSTART.md) | Short operational guide |
+| [ENDGAME.md](ENDGAME.md) | High-rigor repository governance profile |
+| [ENDGAME.json](ENDGAME.json) | Pinned source, gates, version, and audit evidence |
+| [CHANGELOG.md](CHANGELOG.md) | Versioned hub changes |
 
 ## Contributing
 
@@ -156,4 +165,3 @@ Private repository names, contents, and audit findings are not published through
 ## License
 
 This catalog is licensed under [GNU GPL version 3 or any later version](LICENSE). Each linked repository must carry its own compatible license file.
-
