@@ -1,75 +1,159 @@
 # AI Skills by Skylar Lyons
 
-A curated, machine-readable collection of reusable skills for AI agents.
+[![Validate catalog](https://github.com/swl126/ai-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/swl126/ai-skills/actions/workflows/validate.yml)
+[![Verify linked skills](https://github.com/swl126/ai-skills/actions/workflows/verify-linked-skills.yml/badge.svg)](https://github.com/swl126/ai-skills/actions/workflows/verify-linked-skills.yml)
+[![License: GPL-3.0-or-later](https://img.shields.io/badge/License-GPL--3.0--or--later-blue.svg)](LICENSE)
 
-This repository is the catalog and quality-control hub. Each production skill lives in its own repository so it can be installed, versioned, tested, and cited independently.
+A public catalog and quality framework for reusable AI-agent skills.
 
-## Available skills
+The goal is not to collect prompt snippets. It is to publish skills that an unfamiliar agent can discover, execute, test, and audit. Production skills remain in separate repositories so each one can be installed, versioned, validated, cited, and maintained independently.
 
-| Skill | Purpose | Status | License |
-| --- | --- | --- | --- |
-| [ENDGAME](https://github.com/swl126/endgame) | High-rigor orchestration for substantial, consequential work | Validated | GPL-3.0-or-later |
-| [Universal Spreadsheet Engine](https://github.com/swl126/Spreadsheet_runner) | Reproducible spreadsheet workflows with Python or R recipe runners | Validated | GPL-3.0-or-later |
+## Repository status
 
-See [SKILLS.md](SKILLS.md) for capabilities and compatibility. Agents and tooling can consume [catalog.json](catalog.json).
+| Measure | Current state |
+| --- | ---: |
+| Validated skills | 2 |
+| Approved proposals | 20 |
+| Public license | GPL-3.0-or-later |
+| Catalog format | JSON with schema |
+| Validation | Local tests, GitHub Actions, and remote integrity checks |
 
-The approved development backlog contains [20 proposed skills](PROPOSED_SKILLS.md). Tooling can consume [proposals.json](proposals.json) without confusing planned work with validated releases.
+## Validated skills
 
-Search the catalog locally:
+| Skill | Version | Capability | Validation |
+| --- | ---: | --- | --- |
+| [ENDGAME](https://github.com/swl126/endgame) | 1.1.0 | High-rigor orchestration with acceptance gates, selective routing, testing, adversarial review, and proof of completion | [Workflow](https://github.com/swl126/endgame/actions) |
+| [Universal Spreadsheet Engine](https://github.com/swl126/Spreadsheet_runner) | 1.0.0 | Deterministic spreadsheet inspection, transformation, and reusable Python or R recipe generation | [Workflow](https://github.com/swl126/Spreadsheet_runner/actions) |
+
+These are the only repositories currently represented as validated. Planned work is tracked separately so proposals cannot be mistaken for released capabilities.
+
+## Twenty-skill expansion
+
+The [proposed-skill backlog](PROPOSED_SKILLS.md) defines 20 additional standalone skills across:
+
+- AI assurance and AI security;
+- software, data, platform, and privacy engineering;
+- supply-chain security;
+- reliability, resilience, and release assurance;
+- governance, architecture, and reproducible research.
+
+Machines and agents can consume the same backlog from [`proposals.json`](proposals.json) and validate it against [`schema/proposals.schema.json`](schema/proposals.schema.json).
+
+## Find a skill
+
+Clone this catalog and use the dependency-free command-line search:
 
 ```bash
+git clone https://github.com/swl126/ai-skills.git
+cd ai-skills
+
+python3 scripts/skills.py
 python3 scripts/skills.py spreadsheet
 python3 scripts/skills.py --status validated --json
 ```
 
-## What makes a repository an AI skill?
+The released catalog is available as both [human-readable documentation](SKILLS.md) and machine-readable [`catalog.json`](catalog.json).
 
-Every listed repository must:
+## Install a released skill
 
-1. include a root `SKILL.md` with valid YAML frontmatter;
-2. state clear trigger conditions, exclusions, inputs, outputs, and completion criteria;
-3. keep instructions executable rather than promotional;
-4. include examples and a deterministic validation path;
-5. declare `GPL-3.0-or-later` licensing;
-6. pass its repository checks before it is marked validated.
-
-The full contract is in [STANDARD.md](STANDARD.md).
-
-## Trust model
-
-“Validated” means the repository structure, license, declared tests, documentation, published version, and default-branch automation have passed. It does not mean every future AI-generated result is guaranteed correct. See [TRUST.md](TRUST.md).
-
-## Installation
-
-Clone the individual repository you want, then place it where your AI environment loads skills. The portable unit is the repository directory containing `SKILL.md` and its referenced files.
+Clone the individual repository and keep its complete directory. `SKILL.md` is the canonical instruction entry point, but referenced scripts, tests, examples, and supporting material are part of the portable skill.
 
 ```bash
 git clone https://github.com/swl126/endgame.git
-git clone https://github.com/swl126/Spreadsheet_runner.git
+cd endgame
+python3 scripts/validate_skill.py
 ```
 
-Exact installation paths differ by agent platform. The compatibility matrix records what is natively supported versus adaptable.
+Or:
+
+```bash
+git clone https://github.com/swl126/Spreadsheet_runner.git
+cd Spreadsheet_runner
+python3 -m unittest discover -s tests -v
+```
+
+Installation locations and adapter metadata vary by agent platform. See the [compatibility matrix](COMPATIBILITY.md) before treating platform adaptation as native support.
+
+## Skill lifecycle
+
+```mermaid
+flowchart LR
+    P["Proposed"] --> R["Repository created"]
+    R --> C["Candidate"]
+    C --> T["Repaired and tested"]
+    T --> V["Validated"]
+    V --> G["Cataloged release"]
+```
+
+A concept is not added to the released catalog merely because it sounds useful. It must have a public repository, documented provenance, compatible licensing, operational instructions, deterministic validation, and a passing default-branch workflow.
+
+## Quality contract
+
+Every validated skill repository must include:
+
+- a root `SKILL.md` with valid YAML frontmatter;
+- concrete trigger conditions and important exclusions;
+- required inputs, workflow, output contract, and completion gates;
+- relevant safety and authority boundaries;
+- a root `README.md`, `LICENSE`, `VERSION`, and `CHANGELOG.md`;
+- contribution and security guidance;
+- deterministic validation through scripts or tests;
+- validation automation for pushes and pull requests.
+
+The normative requirements are in [STANDARD.md](STANDARD.md). A reusable starting point is available in [`templates/SKILL.template.md`](templates/SKILL.template.md).
+
+## Validation and trust
+
+Run the complete catalog checks locally:
+
+```bash
+python3 scripts/validate_catalog.py
+python3 -m unittest discover -s tests -v
+python3 scripts/verify_remote.py
+```
+
+The checks establish that required files exist, metadata is internally consistent, declared versions match public repositories, licenses contain GNU GPL text, tests pass, and linked public files remain reachable.
+
+Validation does **not** guarantee that every output an AI produces is correct or that every platform interprets instructions identically. Review [TRUST.md](TRUST.md) before granting an agent credentials, external-write authority, network access, or destructive capabilities.
 
 ## Architecture
 
 ```mermaid
 flowchart TD
-    H["ai-skills catalog"] --> C["catalog.json"]
-    H --> S["Quality standard"]
-    H --> E["ENDGAME repository"]
-    H --> U["Spreadsheet Engine repository"]
-    C --> A["AI agents and installers"]
-    S --> V["Automated validation"]
-    E --> V
-    U --> V
+    H["ai-skills hub"] --> HC["Human catalog"]
+    H --> MC["Machine catalog"]
+    H --> PB["Proposal backlog"]
+    H --> QS["Quality standard"]
+    MC --> D["Discovery CLI"]
+    QS --> CI["Automated validation"]
+    CI --> L["Linked skill repositories"]
+    L --> A["Compatible AI agents"]
 ```
+
+The hub contains discovery and governance metadata. Executable skill behavior remains in the linked repositories.
+
+## Repository map
+
+| Resource | Purpose |
+| --- | --- |
+| [`catalog.json`](catalog.json) | Released, validated skill records |
+| [`proposals.json`](proposals.json) | Approved but unimplemented skill concepts |
+| [SKILLS.md](SKILLS.md) | Human-readable released catalog |
+| [PROPOSED_SKILLS.md](PROPOSED_SKILLS.md) | Prioritized 20-skill development backlog |
+| [STANDARD.md](STANDARD.md) | Normative repository and admission requirements |
+| [TRUST.md](TRUST.md) | Validation scope and maturity model |
+| [COMPATIBILITY.md](COMPATIBILITY.md) | Cross-platform portability boundaries |
+| [ROADMAP.md](ROADMAP.md) | Ecosystem development phases |
+| [CANDIDATES.md](CANDIDATES.md) | Privacy-conscious candidate admission process |
+| [docs/QUICKSTART.md](docs/QUICKSTART.md) | Short operational guide |
 
 ## Contributing
 
-Use [CONTRIBUTING.md](CONTRIBUTING.md) to propose a new skill or improve the catalog. Catalog entries are accepted only after validation.
+Read [CONTRIBUTING.md](CONTRIBUTING.md), conform the proposed repository to [STANDARD.md](STANDARD.md), run the validation suite, and submit the supplied pull-request checklist. New skill proposals can use the structured GitHub issue template.
 
-Start with the [quickstart](docs/QUICKSTART.md), review the [roadmap](ROADMAP.md), or inspect the [candidate admission process](CANDIDATES.md).
+Private repository names, contents, and audit findings are not published through the candidate process. A private project must be intentionally made public before it can enter public catalog review.
 
 ## License
 
-This catalog is licensed under [GPL-3.0-or-later](LICENSE). Linked skill repositories carry their own license files.
+This catalog is licensed under [GNU GPL version 3 or any later version](LICENSE). Each linked repository must carry its own compatible license file.
+
