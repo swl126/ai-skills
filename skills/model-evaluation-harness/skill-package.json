@@ -1,7 +1,7 @@
 {
   "$schema": "../../schema/skill-package.schema.json",
   "id": "model-evaluation-harness",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "distribution": "embedded",
   "license": "GPL-3.0-or-later",
   "entrypoint": "SKILL.md",
@@ -16,5 +16,22 @@
   "validation": {
     "command": "python3 scripts/validate_report.py REPORT.md",
     "test_command": "python3 tests/test_validate_report.py"
+  },
+  "extensions": {
+    "executable": "scripts/eval_harness.py",
+    "test": "tests/test_eval_harness.py",
+    "reference": "references/evaluation-contract.md",
+    "schemas": [
+      "schemas/evaluation-spec.schema.json",
+      "schemas/evaluation-case.schema.json",
+      "schemas/system-output.schema.json",
+      "schemas/score-result.schema.json"
+    ],
+    "fixtures": [
+      "examples/fixtures/spec.json",
+      "examples/fixtures/cases.jsonl",
+      "examples/fixtures/baseline.outputs.jsonl",
+      "examples/fixtures/candidate.outputs.jsonl"
+    ]
   }
 }

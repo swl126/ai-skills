@@ -16,7 +16,8 @@
 - candidate admission audits;
 - reusable repository scaffold;
 - documented maturity model.
-- twenty self-contained embedded v1.0.0 packages with behavioral validation.
+- twenty self-contained embedded v1.x packages with behavioral validation;
+- executable gold-standard architecture established in `model-evaluation-harness`.
 
 ## Phase 3 — Catalog growth
 

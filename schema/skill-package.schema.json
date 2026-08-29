@@ -33,6 +33,15 @@
         "command": {"const": "python3 scripts/validate_report.py REPORT.md"},
         "test_command": {"const": "python3 tests/test_validate_report.py"}
       }
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": {
+        "oneOf": [
+          {"type": "string", "minLength": 1},
+          {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        ]
+      }
     }
   }
 }

@@ -94,7 +94,16 @@ class CatalogTests(unittest.TestCase):
     def test_embedded_skills_are_built_version_one_packages(self):
         for item in self.embedded["skills"]:
             self.assertEqual(item["status"], "built")
-            self.assertEqual(item["version"], "1.0.0")
+            self.assertRegex(item["version"], r"^1\.\d+\.\d+$")
+
+    def test_model_evaluation_harness_is_executable_gold_standard(self):
+        item = next(skill for skill in self.embedded["skills"] if skill["id"] == "model-evaluation-harness")
+        self.assertEqual(item["version"], "1.1.0")
+        package_path = ROOT / item["package_path"]
+        package = json.loads(package_path.read_text(encoding="utf-8"))
+        extensions = package["extensions"]
+        self.assertTrue((package_path.parent / extensions["executable"]).is_file())
+        self.assertTrue((package_path.parent / extensions["test"]).is_file())
 
     def test_embedded_package_manifests_match_index(self):
         for item in self.embedded["skills"]:

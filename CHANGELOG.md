@@ -2,6 +2,14 @@
 
 All notable catalog-hub changes are documented here.
 
+## 3.1.0 — 2026-08-29
+
+- promoted `model-evaluation-harness` to the first executable gold-standard embedded package at version 1.1.0;
+- added dependency-free evaluation-contract validation, deterministic and attributed-manual scoring, slice analysis, Wilson intervals, critical-failure gates, content hashes, regression comparison, JSON evidence, and Markdown reporting;
+- added four machine-readable schemas and a six-case baseline/candidate fixture spanning normal, safety, performance, and quality behavior;
+- added 19 executable behavioral tests, including malformed contracts, missing evidence, stale grades, specification mismatch, tamper detection, critical failures, regressions, full CLI operation, and nonzero CI gate behavior;
+- generalized embedded package manifests, validators, and the test runner to support task-specific executable extensions.
+
 ## 3.0.0 — 2026-08-28
 
 - promoted all twenty embedded skills from instruction shells to self-contained version 1.0.0 packages;

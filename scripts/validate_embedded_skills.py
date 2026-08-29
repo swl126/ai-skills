@@ -143,7 +143,21 @@ def main():
         for relative in resources.values():
             if not (skill_root / relative).is_file():
                 errors.append(f"{skill_id}: declared resource is missing: {relative}")
-        expected_files = {"SKILL.md", "skill-package.json", *REQUIRED_PACKAGE_FILES}
+        extensions = package.get("extensions", {})
+        if not isinstance(extensions, dict):
+            errors.append(f"{skill_id}: package extensions must be an object")
+            extensions = {}
+        extension_paths = set()
+        for value in extensions.values():
+            paths = value if isinstance(value, list) else [value]
+            for relative in paths:
+                if not isinstance(relative, str) or not relative:
+                    errors.append(f"{skill_id}: invalid extension resource path")
+                    continue
+                extension_paths.add(relative)
+                if not (skill_root / relative).is_file():
+                    errors.append(f"{skill_id}: declared extension is missing: {relative}")
+        expected_files = {"SKILL.md", "skill-package.json", *REQUIRED_PACKAGE_FILES, *extension_paths}
         actual_files = {
             file.relative_to(skill_root).as_posix()
             for file in skill_root.rglob("*")

@@ -2,7 +2,7 @@
 name: model-evaluation-harness
 description: Design and run repeatable evaluations for AI systems using representative cases, explicit rubrics, baselines, graders, failure taxonomies, and regression gates. Use when comparing models, prompts, agents, or releases; do not use for informal one-off opinions.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   distribution: embedded
 ---
 
@@ -33,6 +33,18 @@ If a required input is unavailable and materially changes the result, identify t
 - Separate observed facts, interpretations, unknowns, and recommendations.
 - Record the target version, environment, collection time, and tool or method when freshness or reproducibility matters.
 - Never upgrade missing evidence into a passing result. Mark it blocked and name what would resolve it.
+
+## Executable harness
+
+For frozen case sets and collected JSONL outputs, read [the executable evaluation contract](references/evaluation-contract.md) and use `scripts/eval_harness.py`.
+
+1. Validate the specification and cases before collecting candidate results.
+2. Run the evaluated systems separately inside their authorized environments; the harness intentionally does not execute models, agents, commands, or tools.
+3. Score baseline and candidate outputs independently, retaining the JSON results and Markdown reports.
+4. Compare only results bound to the same specification and case-set hashes.
+5. Use `--fail-on-block` when the decision must act as a CI release gate.
+
+The built-in fixture demonstrates normal, safety, performance, and quality slices; deterministic and attributed manual checks; a critical canary failure; regression detection; and a blocked release decision.
 
 ## Workflow
 

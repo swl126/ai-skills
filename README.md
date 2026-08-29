@@ -18,7 +18,7 @@ The goal is not to collect prompt snippets. It is to publish operational skills 
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
-| Repository version | 3.0.0 |
+| Repository version | 3.1.0 |
 
 ## Quick start for AI ingestion
 
@@ -44,7 +44,7 @@ An agent should read [`embedded-skills.json`](embedded-skills.json), select the 
 | [ENDGAME](https://github.com/swl126/endgame) | 1.1.0 | High-rigor orchestration with acceptance gates, selective routing, testing, adversarial review, and proof of completion | [Workflow](https://github.com/swl126/endgame/actions) |
 | [Universal Spreadsheet Engine](https://github.com/swl126/Spreadsheet_runner) | 1.0.0 | Deterministic spreadsheet inspection, transformation, and reusable Python or R recipe generation | [Workflow](https://github.com/swl126/Spreadsheet_runner/actions) |
 
-These are the only repositories currently represented as independently validated releases. They are separate from the 20 fully built embedded version `1.0.0` skills below; embedded status means locally ingestible and repository-tested, not independently production-validated.
+These are the only repositories currently represented as independently validated releases. They are separate from the 20 fully built embedded version `1.x` skills below; embedded status means locally ingestible and repository-tested, not independently production-validated.
 
 ## Twenty embedded skills
 
@@ -72,6 +72,18 @@ All 20 approved concepts are implemented as self-contained packages under [`skil
 | [`dataset-documenter`](skills/dataset-documenter/SKILL.md) | Dataset provenance, limitations, and intended use |
 | [`synthetic-data-validator`](skills/synthetic-data-validator/SKILL.md) | Utility, fidelity, and disclosure-risk testing |
 | [`reproducible-research-packager`](skills/reproducible-research-packager/SKILL.md) | Reconstructable research artifacts and provenance |
+
+### Executable gold-standard package
+
+[`model-evaluation-harness`](skills/model-evaluation-harness/SKILL.md) version `1.1.0` is the first embedded package promoted beyond report workflow into domain execution. Its dependency-free CLI validates frozen evaluation contracts, scores collected JSONL outputs, calculates case and slice results with Wilson intervals, preserves critical failures, compares baseline regressions, writes JSON and Markdown evidence, and can fail CI on a `BLOCK` decision.
+
+```bash
+cd skills/model-evaluation-harness
+python3 scripts/eval_harness.py validate \
+  --spec examples/fixtures/spec.json \
+  --cases examples/fixtures/cases.jsonl
+python3 tests/test_eval_harness.py
+```
 
 ## Find a skill
 
@@ -112,7 +124,7 @@ Installation locations and adapter metadata vary by agent platform. See the [com
 
 ```mermaid
 flowchart LR
-    P["Proposed"] --> E["Built embedded v1.0.0"]
+    P["Proposed"] --> E["Built embedded v1.x"]
     E --> T["Tested candidate"]
     T --> V["Independent validation"]
     V --> G["Cataloged release"]

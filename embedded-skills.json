@@ -5,7 +5,7 @@
   "skills": [
     {
       "id": "model-evaluation-harness",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/model-evaluation-harness/SKILL.md",
       "status": "built",
       "package_path": "skills/model-evaluation-harness/skill-package.json"

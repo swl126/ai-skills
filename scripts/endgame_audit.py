@@ -106,8 +106,8 @@ def main():
         errors.append("embedded skill count differs from ENDGAME audit ledger")
     if [item.get("id") for item in embedded_skills] != [item.get("id") for item in backlog]:
         errors.append("embedded skills differ from approved proposal provenance")
-    if any(item.get("version") != "1.0.0" or item.get("status") != "built" for item in embedded_skills):
-        errors.append("embedded skills are not built version 1.0.0 packages")
+    if any(not re.fullmatch(r"1\.\d+\.\d+", item.get("version", "")) or item.get("status") != "built" for item in embedded_skills):
+        errors.append("embedded skills are not built version 1.x packages")
     test_source = (ROOT / "tests/test_catalog.py").read_text(encoding="utf-8")
     test_count = len(re.findall(r"^\s+def test_", test_source, flags=re.MULTILINE))
     if test_count != audit.get("test_count"):

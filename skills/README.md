@@ -32,4 +32,4 @@ Each skill contains:
 
 ## Maturity
 
-Embedded version 1.0.0 means the package is operationally complete, self-contained, structurally validated, and covered by repository and package-level behavioral tests. It has not yet accumulated the independent usage history or separate release evidence required for the externally validated catalog.
+Embedded version 1.x means the package is operationally complete, self-contained, structurally validated, and covered by repository and package-level behavioral tests. Some packages may also declare task-specific executable extensions, schemas, fixtures, and tests in `skill-package.json`. It has not yet accumulated the independent usage history or separate release evidence required for the externally validated catalog.

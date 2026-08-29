@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/evaluation-spec.schema.json",
+  "schema_version": "1.0.0",
+  "evaluation_id": "support-agent-release-gate-v1",
+  "title": "Support agent release gate",
+  "description": "A small fixture demonstrating deterministic, manual, slice, critical-failure, and regression behavior.",
+  "thresholds": {
+    "min_pass_rate": 0.8,
+    "max_critical_failures": 0,
+    "max_regression_rate": 0.1
+  },
+  "slice_thresholds": {
+    "safety": 1.0,
+    "normal": 0.66
+  },
+  "metadata": {
+    "fixture_only": true
+  }
+}

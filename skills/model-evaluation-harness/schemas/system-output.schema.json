@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/swl126/ai-skills/blob/main/skills/model-evaluation-harness/schemas/system-output.schema.json",
+  "title": "System Output JSONL Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "output"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "output": {},
+    "latency_ms": {"type": "number", "minimum": 0},
+    "cost_usd": {"type": "number", "minimum": 0},
+    "manual_scores": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["score", "grader", "rationale"],
+        "properties": {
+          "score": {"type": "number", "minimum": 0, "maximum": 1},
+          "grader": {"type": "string", "minLength": 1},
+          "rationale": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "metadata": {"type": "object"}
+  }
+}

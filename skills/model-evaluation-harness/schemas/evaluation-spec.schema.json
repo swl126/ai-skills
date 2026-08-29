@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/swl126/ai-skills/blob/main/skills/model-evaluation-harness/schemas/evaluation-spec.schema.json",
+  "title": "Evaluation Specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "evaluation_id", "title", "thresholds"],
+  "properties": {
+    "$schema": {"type": "string"},
+    "schema_version": {"const": "1.0.0"},
+    "evaluation_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
+    "thresholds": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min_pass_rate", "max_critical_failures", "max_regression_rate"],
+      "properties": {
+        "min_pass_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "max_critical_failures": {"type": "integer", "minimum": 0},
+        "max_regression_rate": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "slice_thresholds": {
+      "type": "object",
+      "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+    },
+    "metadata": {"type": "object"}
+  }
+}

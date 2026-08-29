@@ -34,8 +34,21 @@ def main() -> None:
         )
         if example.returncode:
             failures.append((entry["id"], example.stdout + example.stderr))
-        else:
-            print(f"passed {entry['id']}")
+            continue
+        package = json.loads((skill_root / "skill-package.json").read_text(encoding="utf-8"))
+        extension_test = package.get("extensions", {}).get("test")
+        if extension_test:
+            extension = subprocess.run(
+                [sys.executable, str(skill_root / extension_test)],
+                cwd=skill_root,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if extension.returncode:
+                failures.append((entry["id"], extension.stdout + extension.stderr))
+                continue
+        print(f"passed {entry['id']}")
     if failures:
         for skill_id, output in failures:
             print(f"FAILED {skill_id}\n{output}", file=sys.stderr)
