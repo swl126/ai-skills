@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "synthetic-data-validator",
+  "title": "Synthetic Data Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "structure",
+    "distributions",
+    "utility",
+    "duplicates",
+    "membership",
+    "subgroups",
+    "decision"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "STRUCTURE-VALID",
+      "category": "structure",
+      "field": "valid",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Structural validity failed"
+    },
+    {
+      "id": "DISTRIBUTIONS-WITHIN-THRESHOLD",
+      "category": "distributions",
+      "field": "within_threshold",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Distribution fidelity failed"
+    },
+    {
+      "id": "UTILITY-WITHIN-THRESHOLD",
+      "category": "utility",
+      "field": "within_threshold",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Downstream utility failed"
+    },
+    {
+      "id": "DUPLICATES-HIGH-RISK-COUNT",
+      "category": "duplicates",
+      "field": "high_risk_count",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "High-risk duplicates remain"
+    },
+    {
+      "id": "MEMBERSHIP-RISK-ACCEPTABLE",
+      "category": "membership",
+      "field": "risk_acceptable",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Membership risk is unacceptable"
+    },
+    {
+      "id": "SUBGROUPS-RISK-ACCEPTABLE",
+      "category": "subgroups",
+      "field": "risk_acceptable",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Subgroup risk is unacceptable"
+    },
+    {
+      "id": "DECISION-THRESHOLDS-PREDECLARED",
+      "category": "decision",
+      "field": "thresholds_predeclared",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Decision thresholds were not predeclared"
+    }
+  ]
+}

@@ -8,13 +8,13 @@
     "entrypoint": "SKILL.md"
   },
   "repository": "https://github.com/swl126/ai-skills",
-  "repository_version": "3.1.0",
+  "repository_version": "4.0.0",
   "required_gates": [
     "catalog-valid",
     "proposal-backlog-valid",
     "embedded-skills-valid",
     "embedded-behavioral-tests-pass",
-    "model-evaluation-executable-tests-pass",
+    "all-executable-engine-tests-pass",
     "unit-tests-pass",
     "local-links-resolve",
     "license-consistent",
@@ -23,11 +23,11 @@
     "remote-linked-skills-verified"
   ],
   "latest_audit": {
-    "date": "2026-08-28",
+    "date": "2026-08-29",
     "result": "pass",
     "validated_skill_count": 2,
     "proposal_count": 20,
     "embedded_skill_count": 20,
-    "test_count": 23
+    "test_count": 24
   }
 }

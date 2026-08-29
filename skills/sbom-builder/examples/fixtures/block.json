@@ -1,0 +1,85 @@
+{
+  "$schema": "../../schemas/assessment.schema.json",
+  "schema_version": "1.0.0",
+  "assessment_id": "block-fixture",
+  "target": {
+    "id": "fixture-target",
+    "version": "1.0.0",
+    "environment": "test"
+  },
+  "evidence": [
+    {
+      "id": "E-1",
+      "kind": "fixture",
+      "source": "examples/fixtures",
+      "age_days": 0,
+      "verified": true,
+      "hash": "sha256:fixture"
+    }
+  ],
+  "records": [
+    {
+      "id": "R-1",
+      "category": "artifact",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "hash_verified": false
+      }
+    },
+    {
+      "id": "R-2",
+      "category": "components",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "resolved": true
+      }
+    },
+    {
+      "id": "R-3",
+      "category": "relationships",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "valid": true
+      }
+    },
+    {
+      "id": "R-4",
+      "category": "licenses",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "unknown_count": 0
+      }
+    },
+    {
+      "id": "R-5",
+      "category": "coverage",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "reconciled": true
+      }
+    }
+  ],
+  "metadata": {
+    "expected_decision": "BLOCK"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "observability-designer",
+  "title": "Observability Design Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "slis",
+    "logs",
+    "metrics",
+    "traces",
+    "alerts",
+    "privacy",
+    "cost"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "SLIS-DEFINED",
+      "category": "slis",
+      "field": "defined",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "SLIs are undefined"
+    },
+    {
+      "id": "LOGS-FAILURE-COVERAGE",
+      "category": "logs",
+      "field": "failure_coverage",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Logs do not cover failure modes"
+    },
+    {
+      "id": "METRICS-CARDINALITY-BOUNDED",
+      "category": "metrics",
+      "field": "cardinality_bounded",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Metric cardinality is unbounded"
+    },
+    {
+      "id": "TRACES-CORRELATED",
+      "category": "traces",
+      "field": "correlated",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Trace correlation is incomplete"
+    },
+    {
+      "id": "ALERTS-ACTIONABLE",
+      "category": "alerts",
+      "field": "actionable",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Alerts are not actionable"
+    },
+    {
+      "id": "PRIVACY-REVIEWED",
+      "category": "privacy",
+      "field": "reviewed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Telemetry privacy is unreviewed"
+    },
+    {
+      "id": "COST-BOUNDED",
+      "category": "cost",
+      "field": "bounded",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Telemetry cost is unbounded"
+    }
+  ]
+}

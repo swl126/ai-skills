@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "architecture-decision-recorder",
+  "title": "Architecture Decision Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "context",
+    "options",
+    "criteria",
+    "decision",
+    "consequences",
+    "reversal"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "CONTEXT-COMPLETE",
+      "category": "context",
+      "field": "complete",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Decision context is incomplete"
+    },
+    {
+      "id": "OPTIONS-VIABLE-COUNT",
+      "category": "options",
+      "field": "viable_count",
+      "operator": "min",
+      "expected": 2,
+      "severity": "high",
+      "message": "Fewer than two viable options"
+    },
+    {
+      "id": "CRITERIA-PREDECLARED",
+      "category": "criteria",
+      "field": "predeclared",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Criteria were not predeclared"
+    },
+    {
+      "id": "DECISION-EVIDENCE-LINKED",
+      "category": "decision",
+      "field": "evidence_linked",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Decision lacks evidence"
+    },
+    {
+      "id": "CONSEQUENCES-DOCUMENTED",
+      "category": "consequences",
+      "field": "documented",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Consequences are undocumented"
+    },
+    {
+      "id": "REVERSAL-DEFINED",
+      "category": "reversal",
+      "field": "defined",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Reversal criteria are undefined"
+    }
+  ]
+}

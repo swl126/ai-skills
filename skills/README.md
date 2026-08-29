@@ -28,8 +28,10 @@ Each skill contains:
 - `agents/openai.yaml` — discovery and invocation metadata;
 - `scripts/validate_report.py` — deterministic completed-report validation;
 - `tests/test_validate_report.py` — four behavioral regression tests;
+- `scripts/assess.py` or a domain-specialized executable — deterministic domain assessment;
+- `schemas/`, `examples/fixtures/`, and an executable test — strict contracts and positive/negative evidence;
 - `skill-package.json` — machine-readable package identity and resource map.
 
 ## Maturity
 
-Embedded version 1.x means the package is operationally complete, self-contained, structurally validated, and covered by repository and package-level behavioral tests. Some packages may also declare task-specific executable extensions, schemas, fixtures, and tests in `skill-package.json`. It has not yet accumulated the independent usage history or separate release evidence required for the externally validated catalog.
+All 20 embedded packages are version 1.1.0 and declare task-specific executable extensions, schemas, fixtures, and tests in `skill-package.json`. They are operationally complete, self-contained, structurally validated, and covered by repository and package-level behavioral tests. They have not yet accumulated the independent usage history or separate release evidence required for the externally validated catalog.

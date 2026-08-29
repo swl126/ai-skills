@@ -2,6 +2,13 @@
 
 All notable catalog-hub changes are documented here.
 
+## 4.0.0 — 2026-08-29
+
+- promoted all twenty embedded skills to executable version 1.1.0 packages;
+- added nineteen dependency-free normalized-evidence assessment engines with domain-specific profiles, strict contracts, and deterministic PASS, REVIEW, or BLOCK decisions;
+- added nineteen schemas, 38 passing/blocking fixtures, 19 executable contracts, and 133 behavioral tests;
+- enforced executable coverage across every embedded package and updated ingestion, maturity, governance, and release documentation.
+
 ## 3.1.0 — 2026-08-29
 
 - promoted `model-evaluation-harness` to the first executable gold-standard embedded package at version 1.1.0;

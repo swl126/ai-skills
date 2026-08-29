@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "policy-to-controls-mapper",
+  "title": "Policy Control Mapping Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "requirements",
+    "controls",
+    "owners",
+    "evidence",
+    "tests",
+    "exceptions"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "REQUIREMENTS-MAPPED-PERCENT",
+      "category": "requirements",
+      "field": "mapped_percent",
+      "operator": "min",
+      "expected": 100,
+      "severity": "high",
+      "message": "Requirements remain unmapped"
+    },
+    {
+      "id": "CONTROLS-TESTABLE",
+      "category": "controls",
+      "field": "testable",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Controls are not testable"
+    },
+    {
+      "id": "OWNERS-ASSIGNED",
+      "category": "owners",
+      "field": "assigned",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Control ownership is incomplete"
+    },
+    {
+      "id": "EVIDENCE-OBTAINABLE",
+      "category": "evidence",
+      "field": "obtainable",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Evidence is unobtainable"
+    },
+    {
+      "id": "TESTS-CRITERIA-DEFINED",
+      "category": "tests",
+      "field": "criteria_defined",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Pass criteria are undefined"
+    },
+    {
+      "id": "EXCEPTIONS-EXPIRING",
+      "category": "exceptions",
+      "field": "expiring",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Exceptions have no expiry"
+    }
+  ]
+}

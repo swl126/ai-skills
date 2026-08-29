@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schemas/assessment.schema.json",
+  "schema_version": "1.0.0",
+  "assessment_id": "block-fixture",
+  "target": {
+    "id": "fixture-target",
+    "version": "1.0.0",
+    "environment": "test"
+  },
+  "evidence": [
+    {
+      "id": "E-1",
+      "kind": "fixture",
+      "source": "examples/fixtures",
+      "age_days": 0,
+      "verified": true,
+      "hash": "sha256:fixture"
+    }
+  ],
+  "records": [
+    {
+      "id": "R-1",
+      "category": "slis",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "defined": false
+      }
+    },
+    {
+      "id": "R-2",
+      "category": "logs",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "failure_coverage": true
+      }
+    },
+    {
+      "id": "R-3",
+      "category": "metrics",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "cardinality_bounded": true
+      }
+    },
+    {
+      "id": "R-4",
+      "category": "traces",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "correlated": true
+      }
+    },
+    {
+      "id": "R-5",
+      "category": "alerts",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "actionable": true
+      }
+    },
+    {
+      "id": "R-6",
+      "category": "privacy",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "reviewed": true
+      }
+    },
+    {
+      "id": "R-7",
+      "category": "cost",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "bounded": true
+      }
+    }
+  ],
+  "metadata": {
+    "expected_decision": "BLOCK"
+  }
+}

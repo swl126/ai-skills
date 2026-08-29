@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "release-readiness-gate",
+  "title": "Release Readiness Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "tests",
+    "security",
+    "rollback",
+    "monitoring",
+    "migration",
+    "documentation"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "TESTS-STATUS",
+      "category": "tests",
+      "field": "status",
+      "operator": "equals",
+      "expected": "pass",
+      "severity": "high",
+      "message": "Test evidence must pass"
+    },
+    {
+      "id": "TESTS-FAILED-COUNT",
+      "category": "tests",
+      "field": "failed_count",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "Failed tests remain"
+    },
+    {
+      "id": "SECURITY-CRITICAL-OPEN",
+      "category": "security",
+      "field": "critical_open",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "Critical security findings remain"
+    },
+    {
+      "id": "ROLLBACK-TESTED",
+      "category": "rollback",
+      "field": "tested",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Rollback is not tested"
+    },
+    {
+      "id": "MONITORING-READY",
+      "category": "monitoring",
+      "field": "ready",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Post-release monitoring is not ready"
+    },
+    {
+      "id": "MIGRATION-REHEARSED",
+      "category": "migration",
+      "field": "rehearsed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Migration is not rehearsed"
+    },
+    {
+      "id": "DOCUMENTATION-COMPLETE",
+      "category": "documentation",
+      "field": "complete",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Release documentation is incomplete"
+    }
+  ]
+}

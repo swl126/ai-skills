@@ -105,6 +105,22 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue((package_path.parent / extensions["executable"]).is_file())
         self.assertTrue((package_path.parent / extensions["test"]).is_file())
 
+    def test_all_embedded_skills_have_executable_engines(self):
+        for item in self.embedded["skills"]:
+            self.assertEqual(item["version"], "1.1.0")
+            package_path = ROOT / item["package_path"]
+            package = json.loads(package_path.read_text(encoding="utf-8"))
+            extensions = package["extensions"]
+            for key in ("executable", "test", "reference"):
+                self.assertTrue(
+                    (package_path.parent / extensions[key]).is_file(),
+                    f"{item['id']}: {key}",
+                )
+            if item["id"] != "model-evaluation-harness":
+                self.assertTrue((package_path.parent / extensions["profile"]).is_file())
+                self.assertEqual(len(extensions["schemas"]), 1)
+                self.assertEqual(len(extensions["fixtures"]), 2)
+
     def test_embedded_package_manifests_match_index(self):
         for item in self.embedded["skills"]:
             package = json.loads((ROOT / item["package_path"]).read_text(encoding="utf-8"))

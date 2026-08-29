@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "incident-postmortem-builder",
+  "title": "Incident Postmortem Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "timeline",
+    "impact",
+    "causality",
+    "detection",
+    "recovery",
+    "actions"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "TIMELINE-NORMALIZED",
+      "category": "timeline",
+      "field": "normalized",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Timeline is not normalized"
+    },
+    {
+      "id": "IMPACT-BOUNDED",
+      "category": "impact",
+      "field": "bounded",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Impact is unbounded"
+    },
+    {
+      "id": "CAUSALITY-EVIDENCE-LINKED",
+      "category": "causality",
+      "field": "evidence_linked",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Causal claims lack evidence"
+    },
+    {
+      "id": "DETECTION-ANALYZED",
+      "category": "detection",
+      "field": "analyzed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Detection gaps are unanalyzed"
+    },
+    {
+      "id": "RECOVERY-ANALYZED",
+      "category": "recovery",
+      "field": "analyzed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Recovery constraints are unanalyzed"
+    },
+    {
+      "id": "ACTIONS-VERIFIABLE",
+      "category": "actions",
+      "field": "verifiable",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Corrective actions are not verifiable"
+    }
+  ]
+}

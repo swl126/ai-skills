@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "sbom-builder",
+  "title": "SBOM Validation Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "artifact",
+    "components",
+    "relationships",
+    "licenses",
+    "coverage"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "ARTIFACT-HASH-VERIFIED",
+      "category": "artifact",
+      "field": "hash_verified",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Artifact hash is unverified"
+    },
+    {
+      "id": "COMPONENTS-RESOLVED",
+      "category": "components",
+      "field": "resolved",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Component identities are unresolved"
+    },
+    {
+      "id": "RELATIONSHIPS-VALID",
+      "category": "relationships",
+      "field": "valid",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Dependency relationships are invalid"
+    },
+    {
+      "id": "LICENSES-UNKNOWN-COUNT",
+      "category": "licenses",
+      "field": "unknown_count",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "Unknown license metadata remains"
+    },
+    {
+      "id": "COVERAGE-RECONCILED",
+      "category": "coverage",
+      "field": "reconciled",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "SBOM coverage is unreconciled"
+    }
+  ]
+}

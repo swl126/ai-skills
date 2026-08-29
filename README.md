@@ -18,7 +18,7 @@ The goal is not to collect prompt snippets. It is to publish operational skills 
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
-| Repository version | 3.1.0 |
+| Repository version | 4.0.0 |
 
 ## Quick start for AI ingestion
 
@@ -48,7 +48,7 @@ These are the only repositories currently represented as independently validated
 
 ## Twenty embedded skills
 
-All 20 approved concepts are implemented as self-contained packages under [`skills/`](skills/README.md). Each package includes an entrypoint, operational playbook, report template, realistic fixture, UI discovery metadata, deterministic report validator, behavioral tests, and a machine-readable package manifest. The [proposal record](PROPOSED_SKILLS.md) remains as design provenance.
+All 20 approved concepts are implemented as self-contained executable packages at version `1.1.0` under [`skills/`](skills/README.md). Each package includes an entrypoint, operational playbook, report template, UI discovery metadata, deterministic report validator, domain engine, strict machine contract, passing and blocking fixtures, behavioral tests, and a machine-readable package manifest. The [proposal record](PROPOSED_SKILLS.md) remains as design provenance.
 
 | Embedded skill | Primary use |
 | --- | --- |
@@ -73,9 +73,9 @@ All 20 approved concepts are implemented as self-contained packages under [`skil
 | [`synthetic-data-validator`](skills/synthetic-data-validator/SKILL.md) | Utility, fidelity, and disclosure-risk testing |
 | [`reproducible-research-packager`](skills/reproducible-research-packager/SKILL.md) | Reconstructable research artifacts and provenance |
 
-### Executable gold-standard package
+### Executable engines
 
-[`model-evaluation-harness`](skills/model-evaluation-harness/SKILL.md) version `1.1.0` is the first embedded package promoted beyond report workflow into domain execution. Its dependency-free CLI validates frozen evaluation contracts, scores collected JSONL outputs, calculates case and slice results with Wilson intervals, preserves critical failures, compares baseline regressions, writes JSON and Markdown evidence, and can fail CI on a `BLOCK` decision.
+Every embedded package now exposes a dependency-free CLI and declares it in `skill-package.json`. The model evaluation engine validates frozen evaluation contracts, scores JSONL outputs, calculates slice results and Wilson intervals, preserves critical failures, compares baselines, and emits integrity-bound evidence. The other 19 engines evaluate normalized evidence against domain-specific category and threshold profiles, reject malformed contracts, distinguish stale or unverified evidence, emit deterministic `PASS`, `REVIEW`, or `BLOCK` decisions, and can fail automation on a block.
 
 ```bash
 cd skills/model-evaluation-harness
@@ -83,6 +83,11 @@ python3 scripts/eval_harness.py validate \
   --spec examples/fixtures/spec.json \
   --cases examples/fixtures/cases.jsonl
 python3 tests/test_eval_harness.py
+
+cd ../release-readiness-gate
+python3 scripts/assess.py validate --input examples/fixtures/pass.json
+python3 scripts/assess.py assess --input examples/fixtures/pass.json --out result.json --report report.md
+python3 tests/test_assess.py
 ```
 
 ## Find a skill

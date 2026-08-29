@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "disaster-recovery-exercise",
+  "title": "Disaster Recovery Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "scope",
+    "safety",
+    "restore",
+    "validation",
+    "rto",
+    "rpo",
+    "retest"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "SCOPE-APPROVED",
+      "category": "scope",
+      "field": "approved",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Exercise scope is unapproved"
+    },
+    {
+      "id": "SAFETY-CONTROLS-PASS",
+      "category": "safety",
+      "field": "controls_pass",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Exercise safety controls failed"
+    },
+    {
+      "id": "RESTORE-COMPLETED",
+      "category": "restore",
+      "field": "completed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Restore did not complete"
+    },
+    {
+      "id": "VALIDATION-SERVICE-PASS",
+      "category": "validation",
+      "field": "service_pass",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Restored service is unvalidated"
+    },
+    {
+      "id": "RTO-MET",
+      "category": "rto",
+      "field": "met",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "RTO was missed"
+    },
+    {
+      "id": "RPO-MET",
+      "category": "rpo",
+      "field": "met",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "RPO was missed"
+    },
+    {
+      "id": "RETEST-SCHEDULED",
+      "category": "retest",
+      "field": "scheduled",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Retest is unscheduled"
+    }
+  ]
+}

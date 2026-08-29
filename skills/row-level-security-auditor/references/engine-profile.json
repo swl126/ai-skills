@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "row-level-security-auditor",
+  "title": "Row-Level Security Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "select",
+    "insert",
+    "update",
+    "delete",
+    "views",
+    "bypass"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "SELECT-NEGATIVE-TESTS-PASS",
+      "category": "select",
+      "field": "negative_tests_pass",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "SELECT isolation failed"
+    },
+    {
+      "id": "INSERT-NEGATIVE-TESTS-PASS",
+      "category": "insert",
+      "field": "negative_tests_pass",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "INSERT isolation failed"
+    },
+    {
+      "id": "UPDATE-NEGATIVE-TESTS-PASS",
+      "category": "update",
+      "field": "negative_tests_pass",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "UPDATE isolation failed"
+    },
+    {
+      "id": "DELETE-NEGATIVE-TESTS-PASS",
+      "category": "delete",
+      "field": "negative_tests_pass",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "DELETE isolation failed"
+    },
+    {
+      "id": "VIEWS-TENANT-SAFE",
+      "category": "views",
+      "field": "tenant_safe",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "View exposure bypasses tenant isolation"
+    },
+    {
+      "id": "BYPASS-DOCUMENTED",
+      "category": "bypass",
+      "field": "documented",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Bypass roles are undocumented"
+    }
+  ]
+}

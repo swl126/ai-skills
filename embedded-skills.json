@@ -12,133 +12,133 @@
     },
     {
       "id": "prompt-injection-tester",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/prompt-injection-tester/SKILL.md",
       "status": "built",
       "package_path": "skills/prompt-injection-tester/skill-package.json"
     },
     {
       "id": "agent-permission-auditor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/agent-permission-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/agent-permission-auditor/skill-package.json"
     },
     {
       "id": "api-contract-auditor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/api-contract-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/api-contract-auditor/skill-package.json"
     },
     {
       "id": "row-level-security-auditor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/row-level-security-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/row-level-security-auditor/skill-package.json"
     },
     {
       "id": "database-migration-guardian",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/database-migration-guardian/SKILL.md",
       "status": "built",
       "package_path": "skills/database-migration-guardian/skill-package.json"
     },
     {
       "id": "secrets-hygiene-auditor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/secrets-hygiene-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/secrets-hygiene-auditor/skill-package.json"
     },
     {
       "id": "dependency-risk-auditor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/dependency-risk-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/dependency-risk-auditor/skill-package.json"
     },
     {
       "id": "sbom-builder",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/sbom-builder/SKILL.md",
       "status": "built",
       "package_path": "skills/sbom-builder/skill-package.json"
     },
     {
       "id": "configuration-drift-detector",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/configuration-drift-detector/SKILL.md",
       "status": "built",
       "package_path": "skills/configuration-drift-detector/skill-package.json"
     },
     {
       "id": "incident-postmortem-builder",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/incident-postmortem-builder/SKILL.md",
       "status": "built",
       "package_path": "skills/incident-postmortem-builder/skill-package.json"
     },
     {
       "id": "disaster-recovery-exercise",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/disaster-recovery-exercise/SKILL.md",
       "status": "built",
       "package_path": "skills/disaster-recovery-exercise/skill-package.json"
     },
     {
       "id": "observability-designer",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/observability-designer/SKILL.md",
       "status": "built",
       "package_path": "skills/observability-designer/skill-package.json"
     },
     {
       "id": "release-readiness-gate",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/release-readiness-gate/SKILL.md",
       "status": "built",
       "package_path": "skills/release-readiness-gate/skill-package.json"
     },
     {
       "id": "architecture-decision-recorder",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/architecture-decision-recorder/SKILL.md",
       "status": "built",
       "package_path": "skills/architecture-decision-recorder/skill-package.json"
     },
     {
       "id": "policy-to-controls-mapper",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/policy-to-controls-mapper/SKILL.md",
       "status": "built",
       "package_path": "skills/policy-to-controls-mapper/skill-package.json"
     },
     {
       "id": "privacy-impact-assessor",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/privacy-impact-assessor/SKILL.md",
       "status": "built",
       "package_path": "skills/privacy-impact-assessor/skill-package.json"
     },
     {
       "id": "dataset-documenter",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/dataset-documenter/SKILL.md",
       "status": "built",
       "package_path": "skills/dataset-documenter/skill-package.json"
     },
     {
       "id": "synthetic-data-validator",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/synthetic-data-validator/SKILL.md",
       "status": "built",
       "package_path": "skills/synthetic-data-validator/skill-package.json"
     },
     {
       "id": "reproducible-research-packager",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "skills/reproducible-research-packager/SKILL.md",
       "status": "built",
       "package_path": "skills/reproducible-research-packager/skill-package.json"

@@ -1,0 +1,109 @@
+{
+  "$schema": "../../schemas/assessment.schema.json",
+  "schema_version": "1.0.0",
+  "assessment_id": "pass-fixture",
+  "target": {
+    "id": "fixture-target",
+    "version": "1.0.0",
+    "environment": "test"
+  },
+  "evidence": [
+    {
+      "id": "E-1",
+      "kind": "fixture",
+      "source": "examples/fixtures",
+      "age_days": 0,
+      "verified": true,
+      "hash": "sha256:fixture"
+    }
+  ],
+  "records": [
+    {
+      "id": "R-1",
+      "category": "inputs",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "resolved": true
+      }
+    },
+    {
+      "id": "R-2",
+      "category": "code",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "pinned": true
+      }
+    },
+    {
+      "id": "R-3",
+      "category": "environment",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "locked": true
+      }
+    },
+    {
+      "id": "R-4",
+      "category": "execution",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "ordered": true
+      }
+    },
+    {
+      "id": "R-5",
+      "category": "checksums",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "verified": true
+      }
+    },
+    {
+      "id": "R-6",
+      "category": "licensing",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "cleared": true
+      }
+    },
+    {
+      "id": "R-7",
+      "category": "reconstruction",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "passed": true
+      }
+    }
+  ],
+  "metadata": {
+    "expected_decision": "PASS"
+  }
+}

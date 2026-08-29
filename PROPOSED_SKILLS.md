@@ -1,6 +1,6 @@
 # Proposed Skill Record
 
-These 20 concepts were approved as the development backlog and are now fully built as embedded version 1.x skill packages under [skills/](skills/README.md). This document preserves their original priority and intended capability. Embedded installation and repository testing do not imply independent release validation.
+These 20 concepts were approved as the development backlog and are now fully built as embedded executable version 1.1.0 skill packages under [skills/](skills/README.md). This document preserves their original priority and intended capability. Embedded installation and repository testing do not imply independent release validation.
 
 | Priority | Skill identifier | Category | Intended capability | Original status |
 | ---: | --- | --- | --- | --- |

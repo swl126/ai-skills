@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "reproducible-research-packager",
+  "title": "Research Reproducibility Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "inputs",
+    "code",
+    "environment",
+    "execution",
+    "checksums",
+    "licensing",
+    "reconstruction"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "INPUTS-RESOLVED",
+      "category": "inputs",
+      "field": "resolved",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Research inputs are unresolved"
+    },
+    {
+      "id": "CODE-PINNED",
+      "category": "code",
+      "field": "pinned",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Code revision is not pinned"
+    },
+    {
+      "id": "ENVIRONMENT-LOCKED",
+      "category": "environment",
+      "field": "locked",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Environment is not locked"
+    },
+    {
+      "id": "EXECUTION-ORDERED",
+      "category": "execution",
+      "field": "ordered",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Execution steps are incomplete"
+    },
+    {
+      "id": "CHECKSUMS-VERIFIED",
+      "category": "checksums",
+      "field": "verified",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Checksums are unverified"
+    },
+    {
+      "id": "LICENSING-CLEARED",
+      "category": "licensing",
+      "field": "cleared",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Redistribution rights are unresolved"
+    },
+    {
+      "id": "RECONSTRUCTION-PASSED",
+      "category": "reconstruction",
+      "field": "passed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Clean reconstruction failed"
+    }
+  ]
+}

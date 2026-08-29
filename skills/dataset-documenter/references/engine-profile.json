@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "dataset-documenter",
+  "title": "Dataset Documentation Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "provenance",
+    "population",
+    "schema",
+    "transformations",
+    "limitations",
+    "governance"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "PROVENANCE-DOCUMENTED",
+      "category": "provenance",
+      "field": "documented",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Provenance is incomplete"
+    },
+    {
+      "id": "POPULATION-DOCUMENTED",
+      "category": "population",
+      "field": "documented",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Population or sampling is incomplete"
+    },
+    {
+      "id": "SCHEMA-DOCUMENTED",
+      "category": "schema",
+      "field": "documented",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Schema or labels are incomplete"
+    },
+    {
+      "id": "TRANSFORMATIONS-REPRODUCIBLE",
+      "category": "transformations",
+      "field": "reproducible",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Transformations are not reproducible"
+    },
+    {
+      "id": "LIMITATIONS-DOCUMENTED",
+      "category": "limitations",
+      "field": "documented",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Limitations are missing"
+    },
+    {
+      "id": "GOVERNANCE-OWNER-ASSIGNED",
+      "category": "governance",
+      "field": "owner_assigned",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Dataset ownership is missing"
+    }
+  ]
+}

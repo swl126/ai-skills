@@ -1,0 +1,97 @@
+{
+  "$schema": "../../schemas/assessment.schema.json",
+  "schema_version": "1.0.0",
+  "assessment_id": "block-fixture",
+  "target": {
+    "id": "fixture-target",
+    "version": "1.0.0",
+    "environment": "test"
+  },
+  "evidence": [
+    {
+      "id": "E-1",
+      "kind": "fixture",
+      "source": "examples/fixtures",
+      "age_days": 0,
+      "verified": true,
+      "hash": "sha256:fixture"
+    }
+  ],
+  "records": [
+    {
+      "id": "R-1",
+      "category": "inventory",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "resolved": false
+      }
+    },
+    {
+      "id": "R-2",
+      "category": "vulnerabilities",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "reachable_critical": 0
+      }
+    },
+    {
+      "id": "R-3",
+      "category": "provenance",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "verified": true
+      }
+    },
+    {
+      "id": "R-4",
+      "category": "maintenance",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "abandoned_critical": 0
+      }
+    },
+    {
+      "id": "R-5",
+      "category": "licenses",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "conflicts": 0
+      }
+    },
+    {
+      "id": "R-6",
+      "category": "remediation",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "owned": true
+      }
+    }
+  ],
+  "metadata": {
+    "expected_decision": "BLOCK"
+  }
+}

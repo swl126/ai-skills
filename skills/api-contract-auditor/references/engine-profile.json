@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "api-contract-auditor",
+  "title": "API Contract Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "authentication",
+    "operations",
+    "schemas",
+    "errors",
+    "compatibility"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "AUTHENTICATION-CONFORMANT",
+      "category": "authentication",
+      "field": "conformant",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Authentication behavior differs from contract"
+    },
+    {
+      "id": "OPERATIONS-CONFORMANT",
+      "category": "operations",
+      "field": "conformant",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Operation behavior differs from contract"
+    },
+    {
+      "id": "SCHEMAS-CONFORMANT",
+      "category": "schemas",
+      "field": "conformant",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Payload schema differs from contract"
+    },
+    {
+      "id": "ERRORS-CONFORMANT",
+      "category": "errors",
+      "field": "conformant",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Error behavior differs from contract"
+    },
+    {
+      "id": "COMPATIBILITY-BREAKING-CHANGES",
+      "category": "compatibility",
+      "field": "breaking_changes",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "Breaking changes remain"
+    }
+  ]
+}

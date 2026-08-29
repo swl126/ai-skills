@@ -1,0 +1,97 @@
+{
+  "$schema": "../../schemas/assessment.schema.json",
+  "schema_version": "1.0.0",
+  "assessment_id": "pass-fixture",
+  "target": {
+    "id": "fixture-target",
+    "version": "1.0.0",
+    "environment": "test"
+  },
+  "evidence": [
+    {
+      "id": "E-1",
+      "kind": "fixture",
+      "source": "examples/fixtures",
+      "age_days": 0,
+      "verified": true,
+      "hash": "sha256:fixture"
+    }
+  ],
+  "records": [
+    {
+      "id": "R-1",
+      "category": "requirements",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "mapped_percent": 100
+      }
+    },
+    {
+      "id": "R-2",
+      "category": "controls",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "testable": true
+      }
+    },
+    {
+      "id": "R-3",
+      "category": "owners",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "assigned": true
+      }
+    },
+    {
+      "id": "R-4",
+      "category": "evidence",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "obtainable": true
+      }
+    },
+    {
+      "id": "R-5",
+      "category": "tests",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "criteria_defined": true
+      }
+    },
+    {
+      "id": "R-6",
+      "category": "exceptions",
+      "severity": "high",
+      "owner": "fixture-owner",
+      "evidence_ids": [
+        "E-1"
+      ],
+      "values": {
+        "expiring": true
+      }
+    }
+  ],
+  "metadata": {
+    "expected_decision": "PASS"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "dependency-risk-auditor",
+  "title": "Dependency Risk Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "inventory",
+    "vulnerabilities",
+    "provenance",
+    "maintenance",
+    "licenses",
+    "remediation"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "INVENTORY-RESOLVED",
+      "category": "inventory",
+      "field": "resolved",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Dependency inventory is unresolved"
+    },
+    {
+      "id": "VULNERABILITIES-REACHABLE-CRITICAL",
+      "category": "vulnerabilities",
+      "field": "reachable_critical",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "Reachable critical vulnerability remains"
+    },
+    {
+      "id": "PROVENANCE-VERIFIED",
+      "category": "provenance",
+      "field": "verified",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Package provenance is unverified"
+    },
+    {
+      "id": "MAINTENANCE-ABANDONED-CRITICAL",
+      "category": "maintenance",
+      "field": "abandoned_critical",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "Critical abandoned dependency remains"
+    },
+    {
+      "id": "LICENSES-CONFLICTS",
+      "category": "licenses",
+      "field": "conflicts",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "License conflicts remain"
+    },
+    {
+      "id": "REMEDIATION-OWNED",
+      "category": "remediation",
+      "field": "owned",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Remediation has no owner"
+    }
+  ]
+}

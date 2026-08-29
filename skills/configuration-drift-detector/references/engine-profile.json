@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "configuration-drift-detector",
+  "title": "Configuration Drift Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "identity",
+    "logging",
+    "encryption",
+    "network",
+    "application"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "IDENTITY-MATCHES-BASELINE",
+      "category": "identity",
+      "field": "matches_baseline",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Identity configuration drifted"
+    },
+    {
+      "id": "LOGGING-MATCHES-BASELINE",
+      "category": "logging",
+      "field": "matches_baseline",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Logging configuration drifted"
+    },
+    {
+      "id": "ENCRYPTION-MATCHES-BASELINE",
+      "category": "encryption",
+      "field": "matches_baseline",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Encryption configuration drifted"
+    },
+    {
+      "id": "NETWORK-MATCHES-BASELINE",
+      "category": "network",
+      "field": "matches_baseline",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Network configuration drifted"
+    },
+    {
+      "id": "APPLICATION-MATCHES-BASELINE",
+      "category": "application",
+      "field": "matches_baseline",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Application configuration drifted"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "$schema": "../../schema/skill-package.schema.json",
   "id": "configuration-drift-detector",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "distribution": "embedded",
   "license": "GPL-3.0-or-later",
   "entrypoint": "SKILL.md",
@@ -16,5 +16,18 @@
   "validation": {
     "command": "python3 scripts/validate_report.py REPORT.md",
     "test_command": "python3 tests/test_validate_report.py"
+  },
+  "extensions": {
+    "executable": "scripts/assess.py",
+    "test": "tests/test_assess.py",
+    "reference": "references/executable-contract.md",
+    "profile": "references/engine-profile.json",
+    "schemas": [
+      "schemas/assessment.schema.json"
+    ],
+    "fixtures": [
+      "examples/fixtures/pass.json",
+      "examples/fixtures/block.json"
+    ]
   }
 }

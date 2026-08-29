@@ -17,7 +17,7 @@
 - reusable repository scaffold;
 - documented maturity model.
 - twenty self-contained embedded v1.x packages with behavioral validation;
-- executable gold-standard architecture established in `model-evaluation-harness`.
+- executable engine architecture implemented across all twenty embedded skills.
 
 ## Phase 3 — Catalog growth
 

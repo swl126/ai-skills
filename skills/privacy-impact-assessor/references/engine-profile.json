@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "privacy-impact-assessor",
+  "title": "Privacy Impact Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "collection",
+    "purpose",
+    "minimization",
+    "retention",
+    "sharing",
+    "rights",
+    "risk"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "COLLECTION-MAPPED",
+      "category": "collection",
+      "field": "mapped",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Collection is unmapped"
+    },
+    {
+      "id": "PURPOSE-NECESSARY",
+      "category": "purpose",
+      "field": "necessary",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Purpose necessity is unproven"
+    },
+    {
+      "id": "MINIMIZATION-APPLIED",
+      "category": "minimization",
+      "field": "applied",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Data is not minimized"
+    },
+    {
+      "id": "RETENTION-BOUNDED",
+      "category": "retention",
+      "field": "bounded",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Retention is unbounded"
+    },
+    {
+      "id": "SHARING-DOCUMENTED",
+      "category": "sharing",
+      "field": "documented",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Recipients or transfers are undocumented"
+    },
+    {
+      "id": "RIGHTS-SUPPORTED",
+      "category": "rights",
+      "field": "supported",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Rights handling is unsupported"
+    },
+    {
+      "id": "RISK-HIGH-UNMITIGATED",
+      "category": "risk",
+      "field": "high_unmitigated",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "High privacy risk remains unmitigated"
+    }
+  ]
+}

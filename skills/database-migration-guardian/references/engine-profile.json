@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "database-migration-guardian",
+  "title": "Database Migration Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "expand",
+    "backfill",
+    "compatibility",
+    "rehearsal",
+    "recovery",
+    "contract"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "EXPAND-SAFE",
+      "category": "expand",
+      "field": "safe",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Expansion step is unsafe"
+    },
+    {
+      "id": "BACKFILL-RESUMABLE",
+      "category": "backfill",
+      "field": "resumable",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Backfill is not resumable"
+    },
+    {
+      "id": "COMPATIBILITY-MIXED-VERSION",
+      "category": "compatibility",
+      "field": "mixed_version",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Mixed-version compatibility failed"
+    },
+    {
+      "id": "REHEARSAL-PASSED",
+      "category": "rehearsal",
+      "field": "passed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Representative rehearsal failed"
+    },
+    {
+      "id": "RECOVERY-VERIFIED",
+      "category": "recovery",
+      "field": "verified",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Recovery is unverified"
+    },
+    {
+      "id": "CONTRACT-OLD-CLIENTS-ZERO",
+      "category": "contract",
+      "field": "old_clients_zero",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Contract step precedes old-client retirement"
+    }
+  ]
+}

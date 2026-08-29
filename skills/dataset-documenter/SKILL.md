@@ -2,7 +2,7 @@
 name: dataset-documenter
 description: Create dataset cards describing provenance, population, collection, transformations, exclusions, limitations, intended use, and known bias. Use when publishing or operationalizing a dataset; do not infer missing provenance or represent documentation as quality proof.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   distribution: embedded
 ---
 
@@ -26,6 +26,13 @@ If a required input is unavailable and materially changes the result, identify t
 - Use [the report template](assets/report-template.md) when a durable deliverable is requested. Preserve its evidence register and acceptance review even if the presentation format changes.
 - Use [the example request](examples/request.md), [decision excerpt](examples/expected-output.md), and [validated worked report](examples/example-report.md) to calibrate scope and decisiveness, never as evidence for the current task.
 - For a narrow question, apply only the relevant workflow steps and state which completion gates are outside scope.
+
+## Executable engine
+
+- Read [the executable contract](references/executable-contract.md) before supplying normalized evidence.
+- Validate inputs with `python3 scripts/assess.py validate --input INPUT.json`.
+- Produce a deterministic decision with `python3 scripts/assess.py assess --input INPUT.json --out RESULT.json --report REPORT.md`.
+- Use `--fail-on-block` in automation. The engine analyzes supplied evidence and never connects to or mutates production systems.
 
 ## Evidence discipline
 

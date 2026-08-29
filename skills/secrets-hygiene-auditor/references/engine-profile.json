@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "secrets-hygiene-auditor",
+  "title": "Secrets Hygiene Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "repository",
+    "history",
+    "ci",
+    "logs",
+    "rotation",
+    "revocation"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "REPOSITORY-LIVE-EXPOSURES",
+      "category": "repository",
+      "field": "live_exposures",
+      "operator": "max",
+      "expected": 0,
+      "severity": "high",
+      "message": "Live repository exposure remains"
+    },
+    {
+      "id": "HISTORY-CONTAINED",
+      "category": "history",
+      "field": "contained",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "History exposure is not contained"
+    },
+    {
+      "id": "CI-REDACTED",
+      "category": "ci",
+      "field": "redacted",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "CI evidence exposes secret material"
+    },
+    {
+      "id": "LOGS-REDACTED",
+      "category": "logs",
+      "field": "redacted",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Logs expose secret material"
+    },
+    {
+      "id": "ROTATION-COMPLETED",
+      "category": "rotation",
+      "field": "completed",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Replacement credential is not validated"
+    },
+    {
+      "id": "REVOCATION-VERIFIED",
+      "category": "revocation",
+      "field": "verified",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Old credential revocation is unverified"
+    }
+  ]
+}

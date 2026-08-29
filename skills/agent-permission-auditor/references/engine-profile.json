@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0.0",
+  "skill_id": "agent-permission-auditor",
+  "title": "Agent Permission Engine",
+  "max_evidence_age_days": 30,
+  "required_categories": [
+    "tools",
+    "credentials",
+    "data",
+    "network",
+    "approvals",
+    "delegation"
+  ],
+  "block_severities": [
+    "critical",
+    "high"
+  ],
+  "review_severities": [
+    "medium"
+  ],
+  "rules": [
+    {
+      "id": "TOOLS-LEAST-PRIVILEGE",
+      "category": "tools",
+      "field": "least_privilege",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Tool authority exceeds purpose"
+    },
+    {
+      "id": "CREDENTIALS-SCOPED",
+      "category": "credentials",
+      "field": "scoped",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Credential scope is excessive"
+    },
+    {
+      "id": "DATA-TENANT-ISOLATED",
+      "category": "data",
+      "field": "tenant_isolated",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Data access is not tenant-isolated"
+    },
+    {
+      "id": "NETWORK-DESTINATIONS-BOUNDED",
+      "category": "network",
+      "field": "destinations_bounded",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Network destinations are unbounded"
+    },
+    {
+      "id": "APPROVALS-PRE-ACTION",
+      "category": "approvals",
+      "field": "pre_action",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Approval occurs after consequential action"
+    },
+    {
+      "id": "DELEGATION-BOUNDED",
+      "category": "delegation",
+      "field": "bounded",
+      "operator": "equals",
+      "expected": true,
+      "severity": "high",
+      "message": "Delegated authority is unbounded"
+    }
+  ]
+}
