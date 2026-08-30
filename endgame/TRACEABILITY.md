@@ -9,4 +9,5 @@
 | Preserve public/private boundary | Generic candidate admission process | Audit scans public governance documents for forbidden private identifiers |
 | Test actual outputs | Catalog validator, 80 report-validator cases, 20 worked-report validations, 19 model-evaluation tests, 133 domain-engine tests, unit suite, link audit, JSON parsing, and remote verification | Local commands plus GitHub Actions |
 | Make every embedded skill executable | Twenty version 1.1.0 packages with declared CLIs, strict schemas, fixtures, domain profiles, and fail-closed decisions | Package tests plus repository executable-coverage test |
+| Install the super-repository as one skill | Root `SKILL.md` progressively routes to all twenty local child packages | Root-router unit test and clean installation smoke test |
 | Prevent stale completion claims | Counts and versions are compared across README, catalogs, VERSION, and ledger | ENDGAME audit |

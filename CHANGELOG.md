@@ -2,6 +2,13 @@
 
 All notable catalog-hub changes are documented here.
 
+## 4.1.0 — 2026-08-30
+
+- made the repository root directly installable as the `ai-skills-hub` skill;
+- added a progressive-disclosure router covering all twenty embedded executable packages;
+- documented that invocation names come from `SKILL.md` frontmatter rather than installation-directory aliases;
+- added repository tests and ENDGAME enforcement for the installable root entrypoint.
+
 ## 4.0.0 — 2026-08-29
 
 - promoted all twenty embedded skills to executable version 1.1.0 packages;

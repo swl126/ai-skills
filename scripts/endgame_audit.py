@@ -70,8 +70,11 @@ def main():
     if missing:
         errors.append("missing required paths: " + ", ".join(missing))
 
-    if (ROOT / "SKILL.md").exists():
-        errors.append("catalog hub must link the canonical ENDGAME skill, not vendor a root SKILL.md")
+    root_skill = (ROOT / "SKILL.md")
+    if not root_skill.is_file():
+        errors.append("installable hub entrypoint SKILL.md is missing")
+    elif "name: ai-skills-hub\n" not in root_skill.read_text(encoding="utf-8"):
+        errors.append("root SKILL.md is not the ai-skills-hub router")
 
     catalog = read_json("catalog.json")
     proposals = read_json("proposals.json")

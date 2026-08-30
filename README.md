@@ -18,24 +18,26 @@ The goal is not to collect prompt snippets. It is to publish operational skills 
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
-| Repository version | 4.0.0 |
+| Repository version | 4.1.0 |
 
 ## Quick start for AI ingestion
 
-Clone once. Every embedded skill is then available locally under `skills/`; no additional repository navigation is required.
+Install the repository root once to expose the `ai-skills-hub` router and every embedded child package beneath it.
 
 ```bash
+python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py \
+  --repo swl126/ai-skills \
+  --path . \
+  --name ai-skills-hub
+
+# Or clone for development and repository-wide validation.
 git clone https://github.com/swl126/ai-skills.git
 cd ai-skills
 
-# Print canonical paths for all embedded skills.
-python3 scripts/list_embedded_skills.py
-
-# Confirm that every package is complete and internally consistent.
 python3 scripts/validate_embedded_skills.py
 ```
 
-An agent should read [`embedded-skills.json`](embedded-skills.json), select the relevant entry, and load the referenced `SKILL.md` before acting. It should preserve each skill's required inputs, workflow, output contract, and safety boundaries.
+Invoke `$ai-skills-hub` after installation. The root [`SKILL.md`](SKILL.md) selects the smallest relevant child set and loads only those instructions. Directory aliases do not change a skill's invocation name; the YAML frontmatter name is authoritative.
 
 ## Independently validated releases
 

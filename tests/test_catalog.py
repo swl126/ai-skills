@@ -121,6 +121,13 @@ class CatalogTests(unittest.TestCase):
                 self.assertEqual(len(extensions["schemas"]), 1)
                 self.assertEqual(len(extensions["fixtures"]), 2)
 
+    def test_repository_root_is_an_installable_router(self):
+        text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("name: ai-skills-hub\n", text)
+        self.assertIn("embedded-skills.json", text)
+        for item in self.embedded["skills"]:
+            self.assertIn(item["path"], text)
+
     def test_embedded_package_manifests_match_index(self):
         for item in self.embedded["skills"]:
             package = json.loads((ROOT / item["package_path"]).read_text(encoding="utf-8"))

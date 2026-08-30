@@ -5,6 +5,7 @@
 | Catalog valid | `scripts/validate_catalog.py` exits successfully |
 | Proposal backlog valid | Exactly 20 unique, ordered proposals with no released-skill collisions |
 | Embedded skills valid | Exactly 20 manifest-aligned, self-contained skill packages pass structural and content validation |
+| Root hub installable | Root `SKILL.md` identifies `ai-skills-hub` and routes to every embedded entrypoint |
 | Embedded behavioral tests pass | All 20 report validators pass four positive/negative unit cases and one complete worked report each |
 | All executable engine tests pass | The model evaluation harness and all 19 normalized-evidence engines pass contract, positive, negative, evidence, CLI, and CI-gate behavior |
 | Unit tests pass | Test discovery exits successfully and the ledger count matches the suite |
