@@ -39,6 +39,16 @@ EXPECTED_VALIDATION = {
     "command": "python3 scripts/validate_report.py REPORT.md",
     "test_command": "python3 tests/test_validate_report.py",
 }
+EXPECTED_EXECUTION = {
+    "runtime": "python>=3.10",
+    "network": "none",
+    "filesystem": {
+        "read": "package-and-user-supplied-inputs",
+        "write": "explicit-output-paths-only",
+    },
+    "external_writes": False,
+    "destructive": False,
+}
 UNFINISHED = ("TODO", "TBD", "replace-with", "<skill-name>")
 
 
@@ -135,6 +145,8 @@ def main():
             errors.append(f"{skill_id}: package resource map mismatch")
         if package.get("validation") != EXPECTED_VALIDATION:
             errors.append(f"{skill_id}: package validation commands mismatch")
+        if package.get("execution") != EXPECTED_EXECUTION:
+            errors.append(f"{skill_id}: execution boundary is missing or unsafe")
         for relative in REQUIRED_PACKAGE_FILES:
             resource = skill_root / relative
             if not resource.is_file():

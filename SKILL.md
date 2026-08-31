@@ -2,7 +2,7 @@
 name: ai-skills-hub
 description: Route complex AI, software, security, reliability, governance, privacy, data, and research work to one of twenty self-contained executable skills bundled in this repository. Use when the user invokes the hub or when a bundled specialist clearly matches; do not load every child skill.
 metadata:
-  version: "4.1.0"
+  version: "5.0.0"
   distribution: hub
 ---
 

@@ -1,7 +1,7 @@
 {
   "$schema": "../../schema/skill-package.schema.json",
   "id": "row-level-security-auditor",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "distribution": "embedded",
   "license": "GPL-3.0-or-later",
   "entrypoint": "SKILL.md",
@@ -17,7 +17,19 @@
     "command": "python3 scripts/validate_report.py REPORT.md",
     "test_command": "python3 tests/test_validate_report.py"
   },
+  "execution": {
+    "runtime": "python>=3.10",
+    "network": "none",
+    "filesystem": {
+      "read": "package-and-user-supplied-inputs",
+      "write": "explicit-output-paths-only"
+    },
+    "external_writes": false,
+    "destructive": false
+  },
   "extensions": {
+    "domain_executable": "scripts/audit_rls.py",
+    "domain_test": "tests/test_audit_rls.py",
     "executable": "scripts/assess.py",
     "test": "tests/test_assess.py",
     "reference": "references/executable-contract.md",

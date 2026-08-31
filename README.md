@@ -18,7 +18,7 @@ The goal is not to collect prompt snippets. It is to publish operational skills 
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
-| Repository version | 4.1.0 |
+| Repository version | 5.0.0 |
 
 ## Quick start for AI ingestion
 
@@ -50,7 +50,7 @@ These are the only repositories currently represented as independently validated
 
 ## Twenty embedded skills
 
-All 20 approved concepts are implemented as self-contained executable packages at version `1.1.0` under [`skills/`](skills/README.md). Each package includes an entrypoint, operational playbook, report template, UI discovery metadata, deterministic report validator, domain engine, strict machine contract, passing and blocking fixtures, behavioral tests, and a machine-readable package manifest. The [proposal record](PROPOSED_SKILLS.md) remains as design provenance.
+All 20 approved concepts are implemented as self-contained executable packages under [`skills/`](skills/README.md). Five priority security packages are version `2.0.0` with real offline domain analyzers; the model evaluation harness has its specialized engine; the remaining fourteen version `1.1.0` packages are explicitly normalized-evidence assessment tools. Every manifest declares runtime, network, filesystem, external-write, and destructive-action boundaries.
 
 | Embedded skill | Primary use |
 | --- | --- |
@@ -77,7 +77,17 @@ All 20 approved concepts are implemented as self-contained executable packages a
 
 ### Executable engines
 
-Every embedded package now exposes a dependency-free CLI and declares it in `skill-package.json`. The model evaluation engine validates frozen evaluation contracts, scores JSONL outputs, calculates slice results and Wilson intervals, preserves critical failures, compares baselines, and emits integrity-bound evidence. The other 19 engines evaluate normalized evidence against domain-specific category and threshold profiles, reject malformed contracts, distinguish stale or unverified evidence, emit deterministic `PASS`, `REVIEW`, or `BLOCK` decisions, and can fail automation on a block.
+Every embedded package exposes a dependency-free CLI declared in `skill-package.json`. The specialized model engine evaluates model outputs. Five domain tools scan local secrets, generate CycloneDX SBOMs from common manifests, compare JSON OpenAPI contracts, join SBOM components to offline advisories, and inspect PostgreSQL RLS DDL. The other packages evaluate normalized user-supplied evidence and must not be mistaken for collectors.
+
+Evidence artifacts can be integrity-bound and reverified:
+
+```bash
+python3 scripts/evidence_envelope.py create result.json \
+  --target-id app --target-version 1.0.0 --environment test \
+  --collector-id sbom-builder --collector-version 2.0.0 --method offline \
+  --out result.envelope.json
+python3 scripts/evidence_envelope.py verify result.envelope.json result.json
+```
 
 ```bash
 cd skills/model-evaluation-harness
@@ -176,6 +186,12 @@ python3 scripts/verify_remote.py
 The checks establish that required files exist, metadata is internally consistent, declared versions match public repositories, licenses contain GNU GPL text, tests pass, and linked public files remain reachable.
 
 Validation does **not** guarantee that every output an AI produces is correct or that every platform interprets instructions identically. Review [TRUST.md](TRUST.md) before granting an agent credentials, external-write authority, network access, or destructive capabilities.
+
+Build the minimal deterministic installation artifact with:
+
+```bash
+python3 scripts/build_distribution.py --out dist/ai-skills-hub.zip
+```
 
 ## Architecture
 

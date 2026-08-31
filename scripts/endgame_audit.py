@@ -27,6 +27,9 @@ REQUIRED_PATHS = {
     "proposals.json",
     "embedded-skills.json",
     "schema/embedded-skills.schema.json",
+    "schema/evidence-envelope.schema.json",
+    "scripts/build_distribution.py",
+    "scripts/evidence_envelope.py",
     "scripts/validate_embedded_skills.py",
     "schema/endgame.schema.json",
 }
@@ -109,10 +112,12 @@ def main():
         errors.append("embedded skill count differs from ENDGAME audit ledger")
     if [item.get("id") for item in embedded_skills] != [item.get("id") for item in backlog]:
         errors.append("embedded skills differ from approved proposal provenance")
-    if any(not re.fullmatch(r"1\.\d+\.\d+", item.get("version", "")) or item.get("status") != "built" for item in embedded_skills):
-        errors.append("embedded skills are not built version 1.x packages")
-    test_source = (ROOT / "tests/test_catalog.py").read_text(encoding="utf-8")
-    test_count = len(re.findall(r"^\s+def test_", test_source, flags=re.MULTILINE))
+    if any(not SEMVER.fullmatch(item.get("version", "")) or item.get("status") != "built" for item in embedded_skills):
+        errors.append("embedded skills are not built semantic-version packages")
+    test_count = sum(
+        len(re.findall(r"^\s+def test_", path.read_text(encoding="utf-8"), flags=re.MULTILINE))
+        for path in (ROOT / "tests").glob("test_*.py")
+    )
     if test_count != audit.get("test_count"):
         errors.append("unit-test count differs from ENDGAME audit ledger")
 

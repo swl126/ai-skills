@@ -4,7 +4,7 @@
   "title": "Embedded Skill Package",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "version", "distribution", "license", "entrypoint", "resources", "validation"],
+  "required": ["id", "version", "distribution", "license", "entrypoint", "resources", "validation", "execution"],
   "properties": {
     "$schema": {"type": "string"},
     "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
@@ -32,6 +32,26 @@
       "properties": {
         "command": {"const": "python3 scripts/validate_report.py REPORT.md"},
         "test_command": {"const": "python3 tests/test_validate_report.py"}
+      }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime", "network", "filesystem", "external_writes", "destructive"],
+      "properties": {
+        "runtime": {"const": "python>=3.10"},
+        "network": {"enum": ["none", "optional", "required"]},
+        "filesystem": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["read", "write"],
+          "properties": {
+            "read": {"enum": ["package-only", "package-and-user-supplied-inputs"]},
+            "write": {"enum": ["none", "explicit-output-paths-only"]}
+          }
+        },
+        "external_writes": {"type": "boolean"},
+        "destructive": {"type": "boolean"}
       }
     },
     "extensions": {

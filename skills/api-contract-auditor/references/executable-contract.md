@@ -16,3 +16,6 @@ python3 tests/test_assess.py
 ```
 
 Decisions are `PASS`, `REVIEW`, or `BLOCK`. Missing categories, missing evidence references, unverified evidence, and failed high-severity rules cannot produce a pass. Output includes canonical SHA-256 hashes for the profile and assessment.
++## Primary evidence analyzer
+
+`python3 scripts/audit_openapi.py baseline.json candidate.json --out compatibility.json --fail-on-block` compares JSON OpenAPI documents for removed paths, operations, responses, schemas, properties, and newly required parameters. YAML and semantic implementation testing remain separate modes.

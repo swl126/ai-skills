@@ -16,3 +16,6 @@ python3 tests/test_assess.py
 ```
 
 Decisions are `PASS`, `REVIEW`, or `BLOCK`. Missing categories, missing evidence references, unverified evidence, and failed high-severity rules cannot produce a pass. Output includes canonical SHA-256 hashes for the profile and assessment.
++## Primary evidence collector
+
+`python3 scripts/build_sbom.py PROJECT --name NAME --version VERSION --out sbom.cdx.json` creates deterministic CycloneDX 1.5 JSON from pinned `requirements.txt`, npm `package-lock.json`, and `Cargo.lock` evidence. Unsupported or unpinned dependencies remain unresolved rather than invented.

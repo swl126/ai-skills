@@ -16,3 +16,6 @@ python3 tests/test_assess.py
 ```
 
 Decisions are `PASS`, `REVIEW`, or `BLOCK`. Missing categories, missing evidence references, unverified evidence, and failed high-severity rules cannot produce a pass. Output includes canonical SHA-256 hashes for the profile and assessment.
++## Primary evidence analyzer
+
+`python3 scripts/triage_dependencies.py sbom.cdx.json advisories.json --out risk.json --fail-on-block` joins CycloneDX package URLs to a normalized offline advisory set and prioritizes severity, reachability, and fix availability. It does not fetch vulnerability feeds or infer reachability.

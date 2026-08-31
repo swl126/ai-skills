@@ -48,6 +48,18 @@ def main() -> None:
             if extension.returncode:
                 failures.append((entry["id"], extension.stdout + extension.stderr))
                 continue
+        domain_test = package.get("extensions", {}).get("domain_test")
+        if domain_test:
+            domain = subprocess.run(
+                [sys.executable, str(skill_root / domain_test)],
+                cwd=skill_root,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if domain.returncode:
+                failures.append((entry["id"], domain.stdout + domain.stderr))
+                continue
         print(f"passed {entry['id']}")
     if failures:
         for skill_id, output in failures:

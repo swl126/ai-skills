@@ -70,8 +70,10 @@ class CatalogTests(unittest.TestCase):
         self.assertEqual(version, self.endgame["repository_version"])
 
     def test_endgame_test_count_matches_suite(self):
-        source = (ROOT / "tests/test_catalog.py").read_text(encoding="utf-8")
-        count = len(__import__("re").findall(r"^\s+def test_", source, flags=__import__("re").MULTILINE))
+        count = sum(
+            len(__import__("re").findall(r"^\s+def test_", path.read_text(encoding="utf-8"), flags=__import__("re").MULTILINE))
+            for path in (ROOT / "tests").glob("test_*.py")
+        )
         self.assertEqual(count, self.endgame["latest_audit"]["test_count"])
 
     def test_twenty_embedded_skills_are_installed(self):
@@ -91,10 +93,10 @@ class CatalogTests(unittest.TestCase):
             text = (ROOT / item["path"]).read_text(encoding="utf-8")
             self.assertIn(f"name: {item['id']}\n", text)
 
-    def test_embedded_skills_are_built_version_one_packages(self):
+    def test_embedded_skills_are_built_semantic_version_packages(self):
         for item in self.embedded["skills"]:
             self.assertEqual(item["status"], "built")
-            self.assertRegex(item["version"], r"^1\.\d+\.\d+$")
+            self.assertRegex(item["version"], r"^\d+\.\d+\.\d+$")
 
     def test_model_evaluation_harness_is_executable_gold_standard(self):
         item = next(skill for skill in self.embedded["skills"] if skill["id"] == "model-evaluation-harness")
@@ -106,8 +108,14 @@ class CatalogTests(unittest.TestCase):
         self.assertTrue((package_path.parent / extensions["test"]).is_file())
 
     def test_all_embedded_skills_have_executable_engines(self):
+        domain_tools = {
+            "secrets-hygiene-auditor",
+            "sbom-builder",
+            "api-contract-auditor",
+            "dependency-risk-auditor",
+            "row-level-security-auditor",
+        }
         for item in self.embedded["skills"]:
-            self.assertEqual(item["version"], "1.1.0")
             package_path = ROOT / item["package_path"]
             package = json.loads(package_path.read_text(encoding="utf-8"))
             extensions = package["extensions"]
@@ -120,6 +128,15 @@ class CatalogTests(unittest.TestCase):
                 self.assertTrue((package_path.parent / extensions["profile"]).is_file())
                 self.assertEqual(len(extensions["schemas"]), 1)
                 self.assertEqual(len(extensions["fixtures"]), 2)
+            self.assertEqual(package["execution"]["network"], "none")
+            self.assertFalse(package["execution"]["external_writes"])
+            self.assertFalse(package["execution"]["destructive"])
+            if item["id"] in domain_tools:
+                self.assertEqual(item["version"], "2.0.0")
+                self.assertTrue((package_path.parent / extensions["domain_executable"]).is_file())
+                self.assertTrue((package_path.parent / extensions["domain_test"]).is_file())
+            else:
+                self.assertEqual(item["version"], "1.1.0")
 
     def test_repository_root_is_an_installable_router(self):
         text = (ROOT / "SKILL.md").read_text(encoding="utf-8")

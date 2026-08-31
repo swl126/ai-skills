@@ -16,3 +16,6 @@ python3 tests/test_assess.py
 ```
 
 Decisions are `PASS`, `REVIEW`, or `BLOCK`. Missing categories, missing evidence references, unverified evidence, and failed high-severity rules cannot produce a pass. Output includes canonical SHA-256 hashes for the profile and assessment.
++## Primary evidence collector
+
+`python3 scripts/scan_secrets.py AUTHORIZED_ROOT --out findings.json --fail-on-findings` scans bounded local text files, skips common dependency/VCS directories, and emits only rule IDs, locations, and irreversible fingerprints. It never prints matched values. Heuristic findings require provider-aware confirmation before revocation.

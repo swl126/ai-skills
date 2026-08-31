@@ -63,6 +63,16 @@ A catalog entry may be marked `validated` only when:
 7. licensing is internally consistent;
 8. the default-branch validation workflow succeeds.
 
+## Executable capability declarations
+
+Every executable package declares its runtime, network requirement, filesystem boundary, external-write behavior, and destructive-action behavior. A package must distinguish:
+
+- a collector that obtains primary evidence;
+- an analyzer that derives findings from artifacts;
+- an assessment gate that evaluates already-normalized evidence.
+
+Descriptions and maturity claims must not represent an assessment gate as a collector or analyzer. Security-relevant evidence should use an integrity envelope or an equivalent signed provenance mechanism.
+
 ## Portability
 
 Platform-specific metadata belongs in optional adapter files such as `agents/openai.yaml`. The root `SKILL.md` remains the canonical, portable instruction source.

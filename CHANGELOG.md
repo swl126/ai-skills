@@ -2,6 +2,15 @@
 
 All notable catalog-hub changes are documented here.
 
+## 5.0.0 — 2026-08-31
+
+- replaced capability-overstatement with explicit collector, analyzer, and normalized-evidence boundaries;
+- promoted secret scanning, SBOM generation, OpenAPI compatibility, dependency triage, and PostgreSQL RLS inspection to real offline version 2.0.0 domain tools;
+- added typed runtime, network, filesystem, external-write, and destructive-action declarations to every package;
+- added integrity-bound evidence envelopes with target and collector provenance plus tamper verification;
+- added deterministic minimal distribution archives and checksums;
+- pinned core GitHub Actions to immutable revisions, added Dependabot coverage, timeouts, compilation checks, and expanded security guidance.
+
 ## 4.1.0 — 2026-08-30
 
 - made the repository root directly installable as the `ai-skills-hub` skill;

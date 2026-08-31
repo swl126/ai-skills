@@ -34,4 +34,4 @@ Each skill contains:
 
 ## Maturity
 
-All 20 embedded packages are version 1.1.0 and declare task-specific executable extensions, schemas, fixtures, and tests in `skill-package.json`. They are operationally complete, self-contained, structurally validated, and covered by repository and package-level behavioral tests. They have not yet accumulated the independent usage history or separate release evidence required for the externally validated catalog.
+Five priority security packages are version 2.0.0 and include real domain analyzers in addition to the shared evidence gate. The model evaluation package has a specialized evaluation engine. The remaining packages are version 1.1.0 normalized-evidence assessors. All packages declare execution boundaries and remain covered by repository and package-level tests; embedded status still does not imply independent field validation.

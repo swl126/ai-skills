@@ -2,7 +2,7 @@
 name: row-level-security-auditor
 description: Audit database row-level security policies for cross-tenant exposure, privilege escalation, missing operation coverage, and unsafe defaults. Use for authorized schema and policy review; do not claim isolation from policy text without enforcement tests.
 metadata:
-  version: "1.1.0"
+  version: "2.0.0"
   distribution: embedded
 ---
 
@@ -29,6 +29,7 @@ If a required input is unavailable and materially changes the result, identify t
 
 ## Executable engine
 
+- Run the domain analyzer declared as `domain_executable` in [skill-package.json](skill-package.json) to collect or analyze primary evidence before applying the normalized-evidence gate.
 - Read [the executable contract](references/executable-contract.md) before supplying normalized evidence.
 - Validate inputs with `python3 scripts/assess.py validate --input INPUT.json`.
 - Produce a deterministic decision with `python3 scripts/assess.py assess --input INPUT.json --out RESULT.json --report REPORT.md`.

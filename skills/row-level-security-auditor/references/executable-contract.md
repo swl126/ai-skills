@@ -16,3 +16,6 @@ python3 tests/test_assess.py
 ```
 
 Decisions are `PASS`, `REVIEW`, or `BLOCK`. Missing categories, missing evidence references, unverified evidence, and failed high-severity rules cannot produce a pass. Output includes canonical SHA-256 hashes for the profile and assessment.
++## Primary evidence analyzer
+
+`python3 scripts/audit_rls.py schema.sql --out rls.json --fail-on-block` statically inspects PostgreSQL DDL for missing ENABLE/FORCE RLS, absent policies, permissive `USING (true)`, and missing `WITH CHECK`. Live tenant-isolation tests remain required before production assurance.

@@ -26,14 +26,14 @@
     },
     {
       "id": "api-contract-auditor",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "path": "skills/api-contract-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/api-contract-auditor/skill-package.json"
     },
     {
       "id": "row-level-security-auditor",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "path": "skills/row-level-security-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/row-level-security-auditor/skill-package.json"
@@ -47,21 +47,21 @@
     },
     {
       "id": "secrets-hygiene-auditor",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "path": "skills/secrets-hygiene-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/secrets-hygiene-auditor/skill-package.json"
     },
     {
       "id": "dependency-risk-auditor",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "path": "skills/dependency-risk-auditor/SKILL.md",
       "status": "built",
       "package_path": "skills/dependency-risk-auditor/skill-package.json"
     },
     {
       "id": "sbom-builder",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "path": "skills/sbom-builder/SKILL.md",
       "status": "built",
       "package_path": "skills/sbom-builder/skill-package.json"

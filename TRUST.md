@@ -15,6 +15,10 @@ Catalog status communicates evidence, not popularity.
 - licensing is internally consistent;
 - the published default branch matches the cataloged version;
 - required public files remain reachable.
+- declared package execution boundaries are present and internally consistent;
+- priority domain tools pass controlled positive and negative fixtures;
+- evidence envelopes detect artifact tampering;
+- the minimal installation archive is reproducible.
 
 ## What validation does not prove
 
@@ -22,5 +26,7 @@ Catalog status communicates evidence, not popularity.
 - every platform interprets instructions identically;
 - third-party services or dependencies remain available;
 - a skill is safe when granted authority beyond its documented scope.
+- an evidence digest proves the identity or honesty of its collector;
+- normalized-evidence assessors collected or independently verified their inputs.
 
 Users should review instructions and scripts before granting credentials, network access, external-write authority, or destructive capabilities.
