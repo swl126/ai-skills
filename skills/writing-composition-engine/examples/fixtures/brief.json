@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/composition-brief.schema.json",
+  "schema_version": "1.0.0",
+  "title": "Release Control Decision",
+  "audience": "Engineering leadership",
+  "purpose": "Recommend evidence-backed release controls.",
+  "genre": "technical-memo",
+  "sections": [
+    {
+      "heading": "Decision",
+      "paragraphs": ["Require rollback rehearsal and post-release monitoring before production deployment."],
+      "claims": [{"text": "The staging rollback completed within the recovery objective.", "evidence_ids": ["E-1"]}]
+    },
+    {
+      "heading": "Rationale",
+      "paragraphs": ["A rehearsed recovery path reduces uncertainty when a release must be reversed."],
+      "claims": [{"text": "Production recovery behavior remains unverified.", "evidence_ids": ["E-1"]}]
+    }
+  ],
+  "sources": [{"id": "E-1", "citation": "Rollback rehearsal record v1", "verified": true}]
+}

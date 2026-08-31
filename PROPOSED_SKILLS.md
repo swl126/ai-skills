@@ -1,6 +1,6 @@
 # Proposed Skill Record
 
-These 20 concepts were approved as the development backlog and are now fully built as embedded executable version 1.1.0 skill packages under [skills/](skills/README.md). This document preserves their original priority and intended capability. Embedded installation and repository testing do not imply independent release validation.
+These 21 concepts were approved as the development backlog and are now built as embedded executable skill packages under [skills/](skills/README.md). This document preserves their priority and intended capability. Embedded installation and repository testing do not imply independent release validation.
 
 | Priority | Skill identifier | Category | Intended capability | Original status |
 | ---: | --- | --- | --- | --- |
@@ -24,6 +24,7 @@ These 20 concepts were approved as the development backlog and are now fully bui
 | 18 | `dataset-documenter` | Data governance | Generate dataset cards describing provenance, population, collection, limitations, intended use, and bias. | Proposed |
 | 19 | `synthetic-data-validator` | Data assurance | Evaluate utility, leakage, duplication, bias, and re-identification risk in synthetic datasets. | Proposed |
 | 20 | `reproducible-research-packager` | Research engineering | Package data, code, environments, parameters, provenance, checksums, and reconstruction instructions. | Proposed |
+| 21 | `writing-composition-engine` | Writing | Compose and audit evidence-traceable academic, technical, policy, proposal, and executive writing. | Proposed |
 
 ## Promotion path
 

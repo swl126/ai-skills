@@ -3,10 +3,11 @@
 | Gate | Passing evidence |
 | --- | --- |
 | Catalog valid | `scripts/validate_catalog.py` exits successfully |
-| Proposal backlog valid | Exactly 20 unique, ordered proposals with no released-skill collisions |
-| Embedded skills valid | Exactly 20 manifest-aligned, self-contained skill packages pass structural and content validation |
+| Proposal backlog valid | Exactly 21 unique, ordered proposals with no released-skill collisions |
+| Embedded skills valid | Exactly 21 manifest-aligned, self-contained skill packages pass structural and content validation |
 | Root hub installable | Root `SKILL.md` identifies `ai-skills-hub` and routes to every embedded entrypoint |
-| Embedded behavioral tests pass | All 20 report validators pass four positive/negative unit cases and one complete worked report each |
+| Embedded behavioral tests pass | All 21 report validators pass positive/negative unit cases and one complete worked report each |
+| Writing composition passes | Brief validation, composition, citation resolution, structural audit, review findings, and CI-block behavior pass |
 | All executable engine tests pass | The model evaluation harness and all 19 normalized-evidence engines pass contract, positive, negative, evidence, CLI, and CI-gate behavior |
 | Priority domain tools pass | Secret, SBOM, OpenAPI, dependency, and RLS analyzers pass independent positive and negative fixtures |
 | Evidence integrity passes | Evidence envelopes round-trip and reject tampered artifacts or incomplete collector identity |

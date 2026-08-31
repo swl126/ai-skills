@@ -6,19 +6,19 @@
 
 A one-clone collection, catalog, and quality framework for reusable AI-agent skills.
 
-The goal is not to collect prompt snippets. It is to publish operational skills that an unfamiliar AI can discover, ingest, execute, test, and audit. This repository uses a hybrid distribution model: 20 skills are embedded for immediate local ingestion, while independently released skills retain their own versioned repositories and are indexed here.
+The goal is not to collect prompt snippets. It is to publish operational skills that an unfamiliar AI can discover, ingest, execute, test, and audit. This repository uses a hybrid distribution model: 21 skills are embedded for immediate local ingestion, while independently released skills retain their own versioned repositories and are indexed here.
 
 ## Repository status
 
 | Measure | Current state |
 | --- | ---: |
 | Validated skills | 2 |
-| Embedded skills | 20 |
-| Approved proposals | 20 |
+| Embedded skills | 21 |
+| Approved proposals | 21 |
 | Public license | GPL-3.0-or-later |
 | Catalog format | JSON with schema |
 | Validation | Local tests, GitHub Actions, and remote integrity checks |
-| Repository version | 5.0.0 |
+| Repository version | 5.1.0 |
 
 ## Quick start for AI ingestion
 
@@ -46,11 +46,11 @@ Invoke `$ai-skills-hub` after installation. The root [`SKILL.md`](SKILL.md) sele
 | [ENDGAME](https://github.com/swl126/endgame) | 1.1.0 | High-rigor orchestration with acceptance gates, selective routing, testing, adversarial review, and proof of completion | [Workflow](https://github.com/swl126/endgame/actions) |
 | [Universal Spreadsheet Engine](https://github.com/swl126/Spreadsheet_runner) | 1.0.0 | Deterministic spreadsheet inspection, transformation, and reusable Python or R recipe generation | [Workflow](https://github.com/swl126/Spreadsheet_runner/actions) |
 
-These are the only repositories currently represented as independently validated releases. They are separate from the 20 fully built embedded version `1.x` skills below; embedded status means locally ingestible and repository-tested, not independently production-validated.
+These are the only repositories currently represented as independently validated releases. They are separate from the 21 built embedded skills below; embedded status means locally ingestible and repository-tested, not independently production-validated.
 
-## Twenty embedded skills
+## Twenty-one embedded skills
 
-All 20 approved concepts are implemented as self-contained executable packages under [`skills/`](skills/README.md). Five priority security packages are version `2.0.0` with real offline domain analyzers; the model evaluation harness has its specialized engine; the remaining fourteen version `1.1.0` packages are explicitly normalized-evidence assessment tools. Every manifest declares runtime, network, filesystem, external-write, and destructive-action boundaries.
+All 21 approved concepts are implemented as self-contained executable packages under [`skills/`](skills/README.md). Five priority security packages are version `2.0.0` with real offline domain analyzers; the model evaluation and writing composition packages have specialized engines; the remaining fourteen version `1.1.0` packages are explicitly normalized-evidence assessment tools. Every manifest declares runtime, network, filesystem, external-write, and destructive-action boundaries.
 
 | Embedded skill | Primary use |
 | --- | --- |
@@ -74,10 +74,11 @@ All 20 approved concepts are implemented as self-contained executable packages u
 | [`dataset-documenter`](skills/dataset-documenter/SKILL.md) | Dataset provenance, limitations, and intended use |
 | [`synthetic-data-validator`](skills/synthetic-data-validator/SKILL.md) | Utility, fidelity, and disclosure-risk testing |
 | [`reproducible-research-packager`](skills/reproducible-research-packager/SKILL.md) | Reconstructable research artifacts and provenance |
+| [`writing-composition-engine`](skills/writing-composition-engine/SKILL.md) | Evidence-traceable academic, technical, policy, proposal, and executive composition |
 
 ### Executable engines
 
-Every embedded package exposes a dependency-free CLI declared in `skill-package.json`. The specialized model engine evaluates model outputs. Five domain tools scan local secrets, generate CycloneDX SBOMs from common manifests, compare JSON OpenAPI contracts, join SBOM components to offline advisories, and inspect PostgreSQL RLS DDL. The other packages evaluate normalized user-supplied evidence and must not be mistaken for collectors.
+Every embedded package exposes a dependency-free CLI declared in `skill-package.json`. The specialized model engine evaluates model outputs. The writing engine validates structured briefs, assembles evidence-linked Markdown, and audits citations and composition. Five domain tools scan local secrets, generate CycloneDX SBOMs from common manifests, compare JSON OpenAPI contracts, join SBOM components to offline advisories, and inspect PostgreSQL RLS DDL. The other packages evaluate normalized user-supplied evidence and must not be mistaken for collectors.
 
 Evidence artifacts can be integrity-bound and reverified:
 
@@ -100,6 +101,11 @@ cd ../release-readiness-gate
 python3 scripts/assess.py validate --input examples/fixtures/pass.json
 python3 scripts/assess.py assess --input examples/fixtures/pass.json --out result.json --report report.md
 python3 tests/test_assess.py
+
+cd ../writing-composition-engine
+python3 scripts/compose.py compose \
+  --brief examples/fixtures/brief.json --out draft.md --audit audit.json
+python3 tests/test_compose.py
 ```
 
 ## Find a skill
@@ -197,7 +203,7 @@ python3 scripts/build_distribution.py --out dist/ai-skills-hub.zip
 
 ```mermaid
 flowchart TD
-    H["ai-skills repository"] --> E["20 embedded skills"]
+    H["ai-skills repository"] --> E["21 embedded skills"]
     H --> C["Release catalog"]
     H --> Q["Quality and governance"]
     E --> A["One-clone AI ingestion"]
@@ -215,7 +221,7 @@ The repository contains executable instructions for the embedded collection as w
 | [`catalog.json`](catalog.json) | Released, validated skill records |
 | [`proposals.json`](proposals.json) | Original approved design provenance for the embedded skills |
 | [`embedded-skills.json`](embedded-skills.json) | Installed embedded skills and canonical ingestion paths |
-| [`skills/`](skills/README.md) | Twenty locally ingestible skill packages |
+| [`skills/`](skills/README.md) | Twenty-one locally ingestible skill packages |
 | [SKILLS.md](SKILLS.md) | Human-readable released catalog |
 | [PROPOSED_SKILLS.md](PROPOSED_SKILLS.md) | Original prioritized design record for the embedded collection |
 | [STANDARD.md](STANDARD.md) | Normative repository and admission requirements |

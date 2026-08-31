@@ -1,6 +1,6 @@
 # Embedded Skills
 
-This directory contains 20 self-contained agent skills that can be ingested from one clone of swl126/ai-skills.
+This directory contains 21 self-contained agent skills that can be ingested from one clone of swl126/ai-skills.
 
 Each child directory is an installable unit whose canonical entry point is SKILL.md. The machine-readable index is [embedded-skills.json](../embedded-skills.json).
 
@@ -15,7 +15,7 @@ python3 scripts/validate_embedded_skills.py
 python3 scripts/test_embedded_skills.py
 ```
 
-No navigation to another repository is required for these 20 embedded skills. The separately released ENDGAME and Universal Spreadsheet Engine remain linked catalog releases and are not duplicated here.
+No navigation to another repository is required for these 21 embedded skills. The separately released ENDGAME and Universal Spreadsheet Engine remain linked catalog releases and are not duplicated here.
 
 ## Package anatomy
 
@@ -34,4 +34,4 @@ Each skill contains:
 
 ## Maturity
 
-Five priority security packages are version 2.0.0 and include real domain analyzers in addition to the shared evidence gate. The model evaluation package has a specialized evaluation engine. The remaining packages are version 1.1.0 normalized-evidence assessors. All packages declare execution boundaries and remain covered by repository and package-level tests; embedded status still does not imply independent field validation.
+Five priority security packages are version 2.0.0 and include real domain analyzers in addition to the shared evidence gate. Model evaluation and writing composition have specialized engines. The remaining packages are version 1.1.0 normalized-evidence assessors. All packages declare execution boundaries and remain covered by repository and package-level tests; embedded status still does not imply independent field validation.

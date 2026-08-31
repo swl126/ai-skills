@@ -42,8 +42,8 @@ class CatalogTests(unittest.TestCase):
         matches = select(self.catalog["skills"], status="validated")
         self.assertEqual(len(matches), len(self.catalog["skills"]))
 
-    def test_twenty_proposals_are_registered(self):
-        self.assertEqual(len(self.proposals["proposals"]), 20)
+    def test_twenty_one_proposals_are_registered(self):
+        self.assertEqual(len(self.proposals["proposals"]), 21)
 
     def test_proposals_do_not_duplicate_catalog(self):
         catalog_ids = {item["id"] for item in self.catalog["skills"]}
@@ -52,7 +52,7 @@ class CatalogTests(unittest.TestCase):
 
     def test_proposal_priorities_are_contiguous(self):
         priorities = [item["priority"] for item in self.proposals["proposals"]]
-        self.assertEqual(priorities, list(range(1, 21)))
+        self.assertEqual(priorities, list(range(1, 22)))
 
     def test_endgame_canonical_source_is_pinned(self):
         source = self.endgame["canonical_skill"]
@@ -76,8 +76,8 @@ class CatalogTests(unittest.TestCase):
         )
         self.assertEqual(count, self.endgame["latest_audit"]["test_count"])
 
-    def test_twenty_embedded_skills_are_installed(self):
-        self.assertEqual(len(self.embedded["skills"]), 20)
+    def test_twenty_one_embedded_skills_are_installed(self):
+        self.assertEqual(len(self.embedded["skills"]), 21)
 
     def test_embedded_ids_match_proposals(self):
         embedded_ids = [item["id"] for item in self.embedded["skills"]]
@@ -124,7 +124,7 @@ class CatalogTests(unittest.TestCase):
                     (package_path.parent / extensions[key]).is_file(),
                     f"{item['id']}: {key}",
                 )
-            if item["id"] != "model-evaluation-harness":
+            if item["id"] not in {"model-evaluation-harness", "writing-composition-engine"}:
                 self.assertTrue((package_path.parent / extensions["profile"]).is_file())
                 self.assertEqual(len(extensions["schemas"]), 1)
                 self.assertEqual(len(extensions["fixtures"]), 2)
@@ -135,6 +135,9 @@ class CatalogTests(unittest.TestCase):
                 self.assertEqual(item["version"], "2.0.0")
                 self.assertTrue((package_path.parent / extensions["domain_executable"]).is_file())
                 self.assertTrue((package_path.parent / extensions["domain_test"]).is_file())
+            elif item["id"] == "writing-composition-engine":
+                self.assertEqual(item["version"], "1.0.0")
+                self.assertEqual(extensions["executable"], "scripts/compose.py")
             else:
                 self.assertEqual(item["version"], "1.1.0")
 

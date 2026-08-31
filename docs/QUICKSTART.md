@@ -10,7 +10,7 @@ python3 scripts/skills.py --status validated --json
 
 ## Install a skill
 
-To ingest all 20 built embedded skills from one clone:
+To ingest all 21 built embedded skills from one clone:
 
 ```bash
 git clone https://github.com/swl126/ai-skills.git

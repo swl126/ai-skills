@@ -78,8 +78,8 @@ def main():
         errors.append("embedded manifest version must be 2.0.0")
     if manifest.get("distribution") != "embedded":
         errors.append("embedded manifest distribution mismatch")
-    if len(entries) != 20:
-        errors.append(f"expected 20 embedded skills, found {len(entries)}")
+    if len(entries) != len(proposals.get("proposals", [])):
+        errors.append(f"embedded/proposal count mismatch: {len(entries)} embedded")
     ids = [entry.get("id") for entry in entries]
     if len(ids) != len(set(ids)):
         errors.append("embedded skill ids are not unique")

@@ -16,15 +16,16 @@
 - candidate admission audits;
 - reusable repository scaffold;
 - documented maturity model.
-- twenty self-contained embedded v1.x packages with behavioral validation;
-- executable engine architecture implemented across all twenty embedded skills.
+- twenty-one self-contained embedded packages with behavioral validation;
+- executable engine architecture implemented across all twenty-one embedded skills;
+- specialized evidence-traceable writing composition and audit engine.
 
 ## Phase 3 — Catalog growth
 
 - promote qualified public candidates through the documented admission process;
 - add citation-validation, document-quality, research, and security-analysis skills as separate repositories;
 - publish versioned catalog releases.
-- forward-test the 20 built embedded skills on additional real-world fixtures and admit qualified packages as independent releases.
+- forward-test the 21 built embedded skills on additional real-world fixtures and admit qualified packages as independent releases.
 
 ## Phase 4 — Ecosystem
 

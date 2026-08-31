@@ -1,0 +1,6 @@
+interface:
+  display_name: "Writing Composition Engine"
+  short_description: "Compose and audit evidence-traceable writing."
+  default_prompt: "Use $writing-composition-engine to compose this material for the stated audience and audit its structure and evidence traceability."
+policy:
+  allow_implicit_invocation: true

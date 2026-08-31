@@ -142,6 +142,13 @@
       "path": "skills/reproducible-research-packager/SKILL.md",
       "status": "built",
       "package_path": "skills/reproducible-research-packager/skill-package.json"
+    },
+    {
+      "id": "writing-composition-engine",
+      "version": "1.0.0",
+      "path": "skills/writing-composition-engine/SKILL.md",
+      "status": "built",
+      "package_path": "skills/writing-composition-engine/skill-package.json"
     }
   ]
 }

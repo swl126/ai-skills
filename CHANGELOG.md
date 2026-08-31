@@ -2,6 +2,13 @@
 
 All notable catalog-hub changes are documented here.
 
+## 5.1.0 — 2026-08-31
+
+- added `writing-composition-engine` as the twenty-first embedded executable skill;
+- added strict composition briefs, deterministic evidence-linked Markdown assembly, source registries, structural and citation audits, and CI-block behavior;
+- added twelve writing-package tests, fixtures, report validation, OpenAI discovery metadata, routing, catalog records, and distribution coverage;
+- updated every count-sensitive validation, governance, roadmap, quick-start, README, and ENDGAME record.
+
 ## 5.0.0 — 2026-08-31
 
 - replaced capability-overstatement with explicit collector, analyzer, and normalized-evidence boundaries;

@@ -1,14 +1,14 @@
 ---
 name: ai-skills-hub
-description: Route complex AI, software, security, reliability, governance, privacy, data, and research work to one of twenty self-contained executable skills bundled in this repository. Use when the user invokes the hub or when a bundled specialist clearly matches; do not load every child skill.
+description: Route complex AI, software, security, reliability, governance, privacy, data, research, and writing work to one of twenty-one self-contained executable skills bundled in this repository. Use when the user invokes the hub or when a bundled specialist clearly matches; do not load every child skill.
 metadata:
-  version: "5.0.0"
+  version: "5.1.0"
   distribution: hub
 ---
 
 # AI Skills Hub
 
-This is the installable root router for the twenty skills indexed by [embedded-skills.json](embedded-skills.json). Select the smallest relevant set, then read each selected child `SKILL.md` completely before acting. Resolve all child paths relative to this file so the installed hub remains self-contained.
+This is the installable root router for the twenty-one skills indexed by [embedded-skills.json](embedded-skills.json). Select the smallest relevant set, then read each selected child `SKILL.md` completely before acting. Resolve all child paths relative to this file so the installed hub remains self-contained.
 
 ## Routing
 
@@ -18,6 +18,7 @@ This is the installable root router for the twenty skills indexed by [embedded-s
 - Reliability: [incident postmortems](skills/incident-postmortem-builder/SKILL.md), [disaster recovery](skills/disaster-recovery-exercise/SKILL.md), [observability](skills/observability-designer/SKILL.md).
 - Architecture and governance: [architecture decisions](skills/architecture-decision-recorder/SKILL.md), [policy-control mapping](skills/policy-to-controls-mapper/SKILL.md), [privacy impact](skills/privacy-impact-assessor/SKILL.md).
 - Data and research: [dataset documentation](skills/dataset-documenter/SKILL.md), [synthetic-data validation](skills/synthetic-data-validator/SKILL.md), [reproducible research](skills/reproducible-research-packager/SKILL.md).
+- Writing: [writing composition](skills/writing-composition-engine/SKILL.md) for evidence-traceable academic, technical, policy, proposal, and executive drafts and audits.
 
 ## Execution rules
 
