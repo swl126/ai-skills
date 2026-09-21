@@ -8,6 +8,9 @@ A one-clone collection, catalog, and quality framework for reusable AI-agent ski
 
 The goal is not to collect prompt snippets. It is to publish operational skills that an unfamiliar AI can discover, ingest, execute, test, and audit. This repository uses a hybrid distribution model: 21 skills are embedded for immediate local ingestion, while independently released skills retain their own versioned repositories and are indexed here.
 
+
+<img width="1228" height="904" alt="image" src="https://github.com/user-attachments/assets/126d60c5-9df4-4a46-9bdf-1293bfc0fbac" />
+
 ## Repository status
 
 | Measure | Current state |
